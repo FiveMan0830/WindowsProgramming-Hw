@@ -4,82 +4,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseApplication.Model.Course
+namespace CourseApplication.Model
 {
-    class Course
+    public class Course
     {
-        public int courseId
+        public string CourseId
         { 
             get; set;
         }
-        public string className 
+        public string CourseName 
         { 
             get; set; 
         }
-        public int stage 
+        public string Stage 
         { 
             get; set; 
         }
-        public float credit 
+        public string Credit 
         { 
             get; set; 
         }
-        public int hour 
+        public string Hour 
         { 
             get; set;
         }
-        public string necessity 
+        public string Necessity 
         { 
             get; set; 
         }
-        public string teacher 
+        public string Teacher 
         { 
             get; set; 
         }
-        public CourseTime classTime 
+        public CourseTime CourseTime 
         {
             get; set; 
         }
-        public string classroom 
+        public string Classroom 
         { 
             get; set; 
         }
-        public int numberOfStudents
+        public string NumberOfStudents
         { 
             get; set; 
         }
-        public int numberOfDropStudents 
+        public string NumberOfDropStudents 
         { 
             get; set; 
         }
-        public string teachingAssistant 
+        public string TeachingAssistant 
         { 
             get; set; 
         }
-        public string language 
+        public string Language 
         { 
             get; set; 
         }
-        public string syllabus 
+        public string Syllabus 
         { 
             get; set;
         }
-        public string note 
+        public string Note 
         { 
             get; set; 
         }
-        public string audit 
+        public string Audit 
         { 
             get; set; 
         }
-        public string experiment 
+        public string Experiment 
         { 
             get; set; 
         }
     }
 
-    enum CourseProperties
+    public enum CourseProperties
     {
+        SelectOptionsLocation,
         CourseIdLocation,
         CourseNameLocation,
         StageLocation,

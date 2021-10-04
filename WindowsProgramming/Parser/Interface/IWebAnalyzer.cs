@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.Course;
+using CourseApplication.Model;
 
-namespace CourseApplication.Parser.Interface
+namespace CourseApplication.Analyzer.Interface
 {
-    interface IHTMLParser
+    public interface IWebAnalyzer
     {
         /// <summary>
         /// 將HTML
         /// </summary>
         /// <param name="htmlDocument"></param>
         /// <returns></returns>
-        List<Course> Parse(HtmlNodeCollection nodeTableRow);
+        List<Course> Analyze(HtmlNodeCollection nodeTableRow);
     }
 }

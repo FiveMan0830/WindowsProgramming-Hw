@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AE08526B-23B5-4ABC-9AAB-FB1CA530443B}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CourseApplication</RootNamespace>
     <AssemblyName>CourseApplication</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack, Version=1.11.37.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.11.37\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -57,15 +60,16 @@
     <Compile Include="SelectCourseForm.Designer.cs">
       <DependentUpon>SelectCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Course\Course.cs" />
-    <Compile Include="Model\Course\CourseTime.cs" />
+    <Compile Include="Model\Course.cs" />
+    <Compile Include="Model\CourseTime.cs" />
     <Compile Include="Model\Dto\CourseInfoDto.cs" />
-    <Compile Include="Parser\CourseParser\HTMLParser.cs" />
-    <Compile Include="Parser\Interface\IHTMLParser.cs" />
+    <Compile Include="Parser\WebAnalyzer\WebAnalyzer.cs" />
+    <Compile Include="Parser\Interface\IWebAnalyzer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\FetchCourseService\FetchCourseService.cs" />
-    <Compile Include="Service\Interfaces\IFetchCourseService.cs" />
+    <Compile Include="SelectCoursePresentationModel.cs" />
+    <Compile Include="Services\FetchCourseService.cs" />
+    <Compile Include="Services\Interfaces\IFetchCourseService.cs" />
     <EmbeddedResource Include="SelectCourseForm.resx">
       <DependentUpon>SelectCourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +84,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CourseApplication.Model.Dto.CourseInfoDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

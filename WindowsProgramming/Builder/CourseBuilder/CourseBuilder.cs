@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.Course;
+using CourseApplication.Model;
 using CourseApplication.Builder.Interface;
 
 namespace CourseApplication.Builder.CourseBuilder
 {
-    class CourseBuilder : ICourseBuilder
+    public class CourseBuilder : ICourseBuilder
     {
         private Course _course;
 
@@ -23,9 +23,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public ICourseBuilder SetId(int id)
+        public ICourseBuilder SetId(string id)
         {
-            _course.courseId = id;
+            _course.CourseId = id;
             return this;
         }
 
@@ -36,7 +36,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetName(string className)
         {
-            _course.className = className;
+            _course.CourseName = className;
             return this;
         }
 
@@ -45,9 +45,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="stage"></param>
         /// <returns></returns>
-        public ICourseBuilder SetStage(int stage)
+        public ICourseBuilder SetStage(string stage)
         {
-            _course.stage = stage;
+            _course.Stage = stage;
             return this;
         }
 
@@ -56,9 +56,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="credit"></param>
         /// <returns></returns>
-        public ICourseBuilder SetCredit(float credit)
+        public ICourseBuilder SetCredit(string credit)
         {
-            _course.credit = credit;
+            _course.Credit = credit;
             return this;
         }
 
@@ -67,9 +67,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="Hour"></param>
         /// <returns></returns>
-        public ICourseBuilder SetHour(int hour)
+        public ICourseBuilder SetHour(string hour)
         {
-            _course.hour = hour;
+            _course.Hour = hour;
             return this;
         }
 
@@ -79,10 +79,10 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <param name="credit"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        public ICourseBuilder SetCreditAndHour(float credit, int hour)
+        public ICourseBuilder SetCreditAndHour(string credit, string hour)
         {
-            _course.credit = credit;
-            _course.hour = hour;
+            _course.Credit = credit;
+            _course.Hour = hour;
             return this;
         }
 
@@ -93,7 +93,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetNecessity(string necessity)
         {
-            _course.necessity = necessity;
+            _course.Necessity = necessity;
             return this;
         }
 
@@ -104,7 +104,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetTeacher(string teacher)
         {
-            _course.teacher = teacher;
+            _course.Teacher = teacher;
             return this;
         }
 
@@ -122,14 +122,14 @@ namespace CourseApplication.Builder.CourseBuilder
             const int THURSDAY_LOCATION = 4;
             const int FRIDAY_LOCATION = 5;
             const int SATURDAY_LOCATION = 6;
-            CourseTime courseTime = new CourseTime();
-            courseTime.sunday = time.ToArray()[SUNDAY_LOCATION];
-            courseTime.monday = time.ToArray()[MONDAY_LOCATION];
-            courseTime.tuesday = time.ToArray()[TUESDAY_LOCATION];
-            courseTime.wednesday = time.ToArray()[WEDNESDAY_LOCATION];
-            courseTime.thursday = time.ToArray()[THURSDAY_LOCATION];
-            courseTime.friday = time.ToArray()[FRIDAY_LOCATION];
-            courseTime.saturday = time.ToArray()[SATURDAY_LOCATION];
+            CourseTime CourseTime = new CourseTime();
+            CourseTime.Sunday = time.ToArray()[SUNDAY_LOCATION];
+            CourseTime.Monday = time.ToArray()[MONDAY_LOCATION];
+            CourseTime.Tuesday = time.ToArray()[TUESDAY_LOCATION];
+            CourseTime.Wednesday = time.ToArray()[WEDNESDAY_LOCATION];
+            CourseTime.Thursday = time.ToArray()[THURSDAY_LOCATION];
+            CourseTime.Friday = time.ToArray()[FRIDAY_LOCATION];
+            CourseTime.Saturday = time.ToArray()[SATURDAY_LOCATION];
             return this;
         }
 
@@ -140,7 +140,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetRoom(string classroom)
         {
-            _course.classroom = classroom;
+            _course.Classroom = classroom;
             return this;
         }
 
@@ -150,10 +150,10 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <param name="numberOfStudents"></param>
         /// <param name="numberOfDropStudents"></param>
         /// <returns></returns>
-        public ICourseBuilder SetNumberOfStudents(int numberOfStudents, int numberOfDropStudents)
+        public ICourseBuilder SetNumberOfStudents(string numberOfStudents, string numberOfDropStudents)
         {
-            _course.numberOfStudents = numberOfStudents;
-            _course.numberOfDropStudents = numberOfDropStudents;
+            _course.NumberOfStudents = numberOfStudents;
+            _course.NumberOfDropStudents = numberOfDropStudents;
             return this;
         }
 
@@ -164,7 +164,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetTeachingAssistant(string teachingAssistant)
         {
-            _course.teachingAssistant = teachingAssistant;
+            _course.TeachingAssistant = teachingAssistant;
             return this;
         }
 
@@ -175,7 +175,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetLanguage(string language)
         {
-            _course.language = language;
+            _course.Language = language;
             return this;
         }
 
@@ -186,7 +186,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetSyllabus(string syllabus)
         {
-            _course.syllabus = syllabus;
+            _course.Syllabus = syllabus;
             return this;
         }
 
@@ -197,7 +197,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetNote(string note)
         {
-            _course.note = note;
+            _course.Note = note;
             return this;
         }
 
@@ -208,7 +208,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetAudit(string audit)
         {
-            _course.audit = audit;
+            _course.Audit = audit;
             return this;
         }
 
@@ -219,8 +219,55 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         public ICourseBuilder SetExperiment(string experiment)
         {
-            _course.experiment = experiment;
+            _course.Experiment = experiment;
             return this;
+        }
+
+        /// <summary>
+        /// 取得上課時間
+        /// </summary>
+        /// <param name="nodeTableDatas"></param>
+        /// <returns></returns>
+        private void SetTime(HtmlNodeCollection nodeTableDatas)
+        {
+            CourseTime CourseTime = new CourseTime();
+            const int SUNDAY_LOCATION = 7;
+            const int MONDAY_LOCATION = 8;
+            const int TUESDAY_LOCATION = 9;
+            const int WEDNESDAY_LOCATION = 10;
+            const int THURSDAY_LOCATION = 11;
+            const int FRIDAY_LOCATION = 12;
+            const int SATURDAY_LOCATION = 13;
+
+            CourseTime.Sunday = nodeTableDatas[SUNDAY_LOCATION].InnerText.Trim();
+            CourseTime.Monday = nodeTableDatas[MONDAY_LOCATION].InnerText.Trim();
+            CourseTime.Tuesday = nodeTableDatas[TUESDAY_LOCATION].InnerText.Trim();
+            CourseTime.Wednesday = nodeTableDatas[WEDNESDAY_LOCATION].InnerText.Trim();
+            CourseTime.Thursday = nodeTableDatas[THURSDAY_LOCATION].InnerText.Trim();
+            CourseTime.Friday = nodeTableDatas[FRIDAY_LOCATION].InnerText.Trim();
+            CourseTime.Saturday = nodeTableDatas[SATURDAY_LOCATION].InnerText.Trim();
+        }
+
+        /// <summary>
+        /// 使用Node建立
+        /// </summary>
+        /// <param name="nodeTableDatas"></param>
+        /// <returns></returns>
+        public Course SetByNode(HtmlNodeCollection nodeTableDatas)
+        {
+            SetRequirements(nodeTableDatas);
+            _course.Teacher = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeacherLocation));
+            SetTime(nodeTableDatas);
+            _course.Classroom = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ClassroomLocation));
+            _course.NumberOfStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfStudentsLocation));
+            _course.NumberOfDropStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfDropStudentsLocation));
+            _course.TeachingAssistant = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeachingAssistantLocation));
+            _course.Language = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.LanguageLocation));
+            _course.Syllabus = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.SyllabusLocation));
+            _course.Note = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NoteLocation));
+            _course.Audit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.AuditLocation));
+            _course.Experiment = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ExperimentLocation));
+            return _course;
         }
 
         /// <summary>
@@ -233,56 +280,27 @@ namespace CourseApplication.Builder.CourseBuilder
         }
 
         /// <summary>
-        /// 取得上課時間
-        /// </summary>
-        /// <param name="nodeTableDatas"></param>
-        /// <returns></returns>
-        private List<string> GetTime(HtmlNodeCollection nodeTableDatas)
-        {
-            const int START_LOCATION = 7;
-            const int END_LOCATION = 14;
-            List<string> time = new List<string>();
-
-            for (int i = START_LOCATION; i < END_LOCATION; i++)
-            {
-                time.Add(nodeTableDatas[i].InnerText.Trim());
-            }
-
-            return time;
-        }
-
-        /// <summary>
-        /// 建立Course
-        /// </summary>
-        /// <param name="nodeTableDatas"></param>
-        /// <returns></returns>
-        public Course BuildCourseByNode(HtmlNodeCollection nodeTableDatas)
-        {
-            return this.SetId(Int32.Parse(GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseIdLocation)))
-                        .SetName(GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseNameLocation))
-                        .SetStage(Int32.Parse(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.StageLocation))))
-                        .SetCreditAndHour(float.Parse(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.CreditLocation))), Int32.Parse(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.HourLocation))))
-                        .SetNecessity(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NecessityLocation)))
-                        .SetTeacher(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeacherLocation)))
-                        .SetTime(GetTime(nodeTableDatas))
-                        .SetRoom(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ClassroomLocation)))
-                        .SetNumberOfStudents(Int32.Parse(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfStudentsLocation))), Int32.Parse(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfDropStudentsLocation))))
-                        .SetTeachingAssistant(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeachingAssistantLocation)))
-                        .SetLanguage(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.LanguageLocation)))
-                        .SetSyllabus(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.SyllabusLocation)))
-                        .SetNote(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NoteLocation)))
-                        .SetAudit(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.AuditLocation)))
-                        .SetExperiment(GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ExperimentLocation)))
-                        .GetCourse();
-        }
-        /// <summary>
         /// 從 Table 拿取 Course Data
         /// </summary>
         /// <param name="nodeTableDatas"></param>
         /// <returns></returns>
         private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int location)
         {
-            return nodeTableDatas[location].InnerText.Trim();
+            return nodeTableDatas[location-1].InnerText.Trim();
+        }
+
+        /// <summary>
+        /// 設置部分修課資訊
+        /// </summary>
+        /// <param name="nodeTableDatas"></param>
+        private void SetRequirements(HtmlNodeCollection nodeTableDatas)
+        {
+            _course.CourseId = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseIdLocation);
+            _course.CourseName = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseNameLocation);
+            _course.Stage = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.StageLocation));
+            _course.Credit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.CreditLocation));
+            _course.Hour = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.HourLocation));
+            _course.Necessity = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NecessityLocation));
         }
     }
 }

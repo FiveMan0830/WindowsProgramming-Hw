@@ -4,35 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseApplication.Model.Course
+namespace CourseApplication.Model
 {
-    class CourseTime
+    public class CourseTime
     {
-        public string sunday 
+        public string Sunday 
         { 
             get; set; 
         }
-        public string monday 
+        public string Monday 
         { 
             get; set;
         }
-        public string tuesday 
+        public string Tuesday 
         { 
             get; set; 
         }
-        public string wednesday 
+        public string Wednesday 
         { 
             get; set; 
         }
-        public string thursday 
+        public string Thursday 
         { 
             get; set; 
         }
-        public string friday 
+        public string Friday 
         { 
             get; set; 
         }
-        public string saturday 
+        public string Saturday 
         { 
             get; set; 
         }

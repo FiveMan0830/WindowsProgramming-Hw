@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.Course;
+using CourseApplication.Model;
 
 namespace CourseApplication.Builder.Interface
 {
-    interface ICourseBuilder
+    public interface ICourseBuilder
     {
         /// <summary>
         /// 設置課號
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        ICourseBuilder SetId(int id);
+        ICourseBuilder SetId(string id);
         /// <summary>
         /// 設置課程名稱
         /// </summary>
@@ -27,26 +27,26 @@ namespace CourseApplication.Builder.Interface
         /// </summary>
         /// <param name="stage"></param>
         /// <returns></returns>
-        ICourseBuilder SetStage(int stage);
+        ICourseBuilder SetStage(string stage);
         /// <summary>
         /// 設置學分數
         /// </summary>
         /// <param name="credit"></param>
         /// <returns></returns>
-        ICourseBuilder SetCredit(float credit);
+        ICourseBuilder SetCredit(string credit);
         /// <summary>
         /// 設置上課時數
         /// </summary>
         /// <param name="Hour"></param>
         /// <returns></returns>
-        ICourseBuilder SetHour(int hour);
+        ICourseBuilder SetHour(string hour);
         /// <summary>
         /// 設置學分及上課時數
         /// </summary>
         /// <param name="credit"></param>
         /// <param name="hour"></param>
         /// <returns></returns>
-        ICourseBuilder SetCreditAndHour(float credit, int hour);
+        ICourseBuilder SetCreditAndHour(string credit, string hour);
         /// <summary>
         /// 設置選必修別
         /// </summary>
@@ -77,7 +77,7 @@ namespace CourseApplication.Builder.Interface
         /// <param name="numberOfStudents"></param>
         /// <param name="numberOfDropStudents"></param>
         /// <returns></returns>
-        ICourseBuilder SetNumberOfStudents(int numberOfStudents, int numberOfDropStudents);
+        ICourseBuilder SetNumberOfStudents(string numberOfStudents, string numberOfDropStudents);
         /// <summary>
         /// 設置助教
         /// </summary>
@@ -115,15 +115,15 @@ namespace CourseApplication.Builder.Interface
         /// <returns></returns>
         ICourseBuilder SetExperiment(string experiment);
         /// <summary>
+        /// 使用Node建立
+        /// </summary>
+        /// <param name="nodeTableDatas"></param>
+        /// <returns></returns>
+        Course SetByNode(HtmlNodeCollection nodeTableDatas);
+        /// <summary>
         /// Get Course
         /// </summary>
         /// <returns></returns>
         Course GetCourse();
-        /// <summary>
-        /// 建立Course
-        /// </summary>
-        /// <param name="nodeTableDatas"></param>
-        /// <returns></returns>
-        Course BuildCourseByNode(HtmlNodeCollection nodeTableDatas);
     }
 }

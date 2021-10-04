@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.Course;
+using CourseApplication.Model;
 
-namespace CourseApplication.Service.Interfaces
+namespace CourseApplication.Services.Interfaces
 {
-    interface IFetchCourseService
+    public interface IFetchCourseService
     {
         /// <summary>
         /// 取得Course資料
         /// </summary>
-        /// <param name="resourceRoute"></param>
         /// <returns></returns>
-        List<Course> FetchCourse(string resourceRoute);
+        IList<Course> FetchCourse();
     }
 }

@@ -185,264 +185,7 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>ICS(空白與空行-16)</SmellType>
-              <HashCode>SpacingAndNewLine16.CourseBuilder.GetDataFromTable.0</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>CourseBuilder.cs</File>
-              <Line>283</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-16) 每個函式之間加一個空行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Unsuitable naming(名不符實)-CourseApplication.Parser.CourseParser(parser, parser)</SmellType>
-              <HashCode>UnsuitableNaming.Root.CourseApplication.Parser.CourseParser.CourseApplication.Parser.CourseParser</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>HTMLParser.cs</File>
-              <Line>12</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>Unsuitable naming(名不符實)-HTMLParser(html, parser)</SmellType>
-              <HashCode>UnsuitableNaming.CourseApplication.Parser.CourseParser.HTMLParser.HTMLParser</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>HTMLParser.cs</File>
-              <Line>14</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
-              <SmellType>Unsuitable naming(名不符實)-Parse(parse)</SmellType>
-              <HashCode>UnsuitableNaming.HTMLParser.Parse.Parse</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>HTMLParser.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.HTMLParser.Parse</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>HTMLParser.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Unsuitable naming(名不符實)-CourseApplication.Parser.Interface(parser)</SmellType>
-              <HashCode>UnsuitableNaming.Root.CourseApplication.Parser.Interface.CourseApplication.Parser.Interface</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>IHTMLParser.cs</File>
-              <Line>9</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
-              <SmellType>Unsuitable naming(名不符實)-IHTMLParser(ihtml, parser)</SmellType>
-              <HashCode>UnsuitableNaming.CourseApplication.Parser.Interface.IHTMLParser.IHTMLParser</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>IHTMLParser.cs</File>
-              <Line>11</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Unsuitable naming(名不符實)-Parse(parse)</SmellType>
-              <HashCode>UnsuitableNaming.IHTMLParser.Parse.Parse</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>IHTMLParser.cs</File>
-              <Line>18</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.IHTMLParser.Parse</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>IHTMLParser.cs</File>
-              <Line>18</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>10</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.SelectCourseForm.tableLayoutPanel1</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>SelectCourseForm.Designer.cs</File>
-              <Line>108</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.SelectCourseForm.dataGridView1</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>SelectCourseForm.Designer.cs</File>
-              <Line>109</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.SelectCourseForm.button1</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>SelectCourseForm.Designer.cs</File>
-              <Line>110</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>13</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.SelectCourseForm.button2</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>SelectCourseForm.Designer.cs</File>
-              <Line>111</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
-              <SmellType>ICS(空白與空行-16)</SmellType>
-              <HashCode>SpacingAndNewLine16.FetchCourseService.RemoveRedundantNodes.0</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>FetchCourseService.cs</File>
-              <Line>40</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-16) 每個函式之間加一個空行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>15</Id>
-              <SmellType>Unsuitable naming(名不符實)-parser(parser)</SmellType>
-              <HashCode>UnsuitableNaming.FetchCourseService.FetchCourse.parser</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>FetchCourseService.cs</File>
-              <Line>31</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>16</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>276 目前物件 CourseApplication.Builder.CourseBuilder.CourseBuilder，使用物件的方法或屬性次數：1次，Envy到對象物件 CourseApplication.Builder.Interface.ICourseBuilder，使用物件方法或屬性次數：15次，使用到的方法或屬性為以下：CourseApplication.Builder.Interface.ICourseBuilder.SetName(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetStage(int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetCreditAndHour(float, int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNecessity(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTeacher(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTime(System.Collections.Generic.List&lt;string&gt;) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetRoom(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNumberOfStudents(int, int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTeachingAssistant(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetLanguage(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetSyllabus(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNote(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetAudit(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetExperiment(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.GetCourse()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseApplication</Project>
-              <File>C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\Builder\CourseBuilder\CourseBuilder.cs</File>
-              <Line>276</Line>
-              <StartLine>260</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>276</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 CourseApplication.Builder.CourseBuilder.CourseBuilder，使用物件的方法或屬性次數：1次，Envy到對象物件 CourseApplication.Builder.Interface.ICourseBuilder，使用物件方法或屬性次數：15次，使用到的方法或屬性為以下：CourseApplication.Builder.Interface.ICourseBuilder.SetName(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetStage(int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetCreditAndHour(float, int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNecessity(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTeacher(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTime(System.Collections.Generic.List&lt;string&gt;) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetRoom(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNumberOfStudents(int, int) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetTeachingAssistant(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetLanguage(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetSyllabus(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetNote(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetAudit(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.SetExperiment(string) 以及 CourseApplication.Builder.Interface.ICourseBuilder.GetCourse()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -458,12 +201,12 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Course\Course.cs</RelativePath>
+                <RelativePath>Model\Course.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Course\CourseTime.cs</RelativePath>
+                <RelativePath>Model\CourseTime.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -473,12 +216,12 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Parser\CourseParser\HTMLParser.cs</RelativePath>
+                <RelativePath>Parser\Interface\IWebAnalyzer.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Parser\Interface\IHTMLParser.cs</RelativePath>
+                <RelativePath>Parser\WebAnalyzer\WebAnalyzer.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -513,18 +256,23 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Service\FetchCourseService\FetchCourseService.cs</RelativePath>
+                <RelativePath>SelectCoursePresentationModel.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Service\Interfaces\IFetchCourseService.cs</RelativePath>
+                <RelativePath>Services\FetchCourseService.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Services\Interfaces\IFetchCourseService.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1055</ProductionLoc>
+          <ProductionLoc>1040</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
