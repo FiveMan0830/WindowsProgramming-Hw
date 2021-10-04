@@ -109,31 +109,6 @@ namespace CourseApplication.Builder.CourseBuilder
         }
 
         /// <summary>
-        /// 設置上課時間
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        public ICourseBuilder SetTime(List<string> time)
-        {
-            const int SUNDAY_LOCATION = 0;
-            const int MONDAY_LOCATION = 1;
-            const int TUESDAY_LOCATION = 2;
-            const int WEDNESDAY_LOCATION = 3;
-            const int THURSDAY_LOCATION = 4;
-            const int FRIDAY_LOCATION = 5;
-            const int SATURDAY_LOCATION = 6;
-            CourseTime CourseTime = new CourseTime();
-            CourseTime.Sunday = time.ToArray()[SUNDAY_LOCATION];
-            CourseTime.Monday = time.ToArray()[MONDAY_LOCATION];
-            CourseTime.Tuesday = time.ToArray()[TUESDAY_LOCATION];
-            CourseTime.Wednesday = time.ToArray()[WEDNESDAY_LOCATION];
-            CourseTime.Thursday = time.ToArray()[THURSDAY_LOCATION];
-            CourseTime.Friday = time.ToArray()[FRIDAY_LOCATION];
-            CourseTime.Saturday = time.ToArray()[SATURDAY_LOCATION];
-            return this;
-        }
-
-        /// <summary>
         /// 設置教室
         /// </summary>
         /// <param name="classroom"></param>
@@ -228,9 +203,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="nodeTableDatas"></param>
         /// <returns></returns>
-        private void SetTime(HtmlNodeCollection nodeTableDatas)
+        private CourseTime SetTime(HtmlNodeCollection nodeTableDatas)
         {
-            CourseTime CourseTime = new CourseTime();
+            CourseTime courseTime = new CourseTime();
             const int SUNDAY_LOCATION = 7;
             const int MONDAY_LOCATION = 8;
             const int TUESDAY_LOCATION = 9;
@@ -239,13 +214,14 @@ namespace CourseApplication.Builder.CourseBuilder
             const int FRIDAY_LOCATION = 12;
             const int SATURDAY_LOCATION = 13;
 
-            CourseTime.Sunday = nodeTableDatas[SUNDAY_LOCATION].InnerText.Trim();
-            CourseTime.Monday = nodeTableDatas[MONDAY_LOCATION].InnerText.Trim();
-            CourseTime.Tuesday = nodeTableDatas[TUESDAY_LOCATION].InnerText.Trim();
-            CourseTime.Wednesday = nodeTableDatas[WEDNESDAY_LOCATION].InnerText.Trim();
-            CourseTime.Thursday = nodeTableDatas[THURSDAY_LOCATION].InnerText.Trim();
-            CourseTime.Friday = nodeTableDatas[FRIDAY_LOCATION].InnerText.Trim();
-            CourseTime.Saturday = nodeTableDatas[SATURDAY_LOCATION].InnerText.Trim();
+            courseTime.Sunday = nodeTableDatas[SUNDAY_LOCATION].InnerText.Trim();
+            courseTime.Monday = nodeTableDatas[MONDAY_LOCATION].InnerText.Trim();
+            courseTime.Tuesday = nodeTableDatas[TUESDAY_LOCATION].InnerText.Trim();
+            courseTime.Wednesday = nodeTableDatas[WEDNESDAY_LOCATION].InnerText.Trim();
+            courseTime.Thursday = nodeTableDatas[THURSDAY_LOCATION].InnerText.Trim();
+            courseTime.Friday = nodeTableDatas[FRIDAY_LOCATION].InnerText.Trim();
+            courseTime.Saturday = nodeTableDatas[SATURDAY_LOCATION].InnerText.Trim();
+            return courseTime;
         }
 
         /// <summary>
@@ -257,7 +233,7 @@ namespace CourseApplication.Builder.CourseBuilder
         {
             SetRequirements(nodeTableDatas);
             _course.Teacher = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeacherLocation));
-            SetTime(nodeTableDatas);
+            _course.CourseTime = SetTime(nodeTableDatas);
             _course.Classroom = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ClassroomLocation));
             _course.NumberOfStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfStudentsLocation));
             _course.NumberOfDropStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfDropStudentsLocation));
@@ -286,7 +262,7 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <returns></returns>
         private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int location)
         {
-            return nodeTableDatas[location-1].InnerText.Trim();
+            return nodeTableDatas[location - 1].InnerText.Trim();
         }
 
         /// <summary>

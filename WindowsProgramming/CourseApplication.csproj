@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AE08526B-23B5-4ABC-9AAB-FB1CA530443B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>CourseApplication</RootNamespace>
     <AssemblyName>CourseApplication</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -72,6 +72,7 @@
     <Compile Include="Services\Interfaces\IFetchCourseService.cs" />
     <EmbeddedResource Include="SelectCourseForm.resx">
       <DependentUpon>SelectCourseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

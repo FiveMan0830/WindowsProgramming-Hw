@@ -60,12 +60,6 @@ namespace CourseApplication.Builder.Interface
         /// <returns></returns>
         ICourseBuilder SetTeacher(string teacher);
         /// <summary>
-        /// 設置上課時間
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        ICourseBuilder SetTime(List<string> time);
-        /// <summary>
         /// 設置教室
         /// </summary>
         /// <param name="classroom"></param>

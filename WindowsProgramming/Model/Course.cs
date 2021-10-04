@@ -36,9 +36,9 @@ namespace CourseApplication.Model
         { 
             get; set; 
         }
-        public CourseTime CourseTime 
+        public CourseTime CourseTime
         {
-            get; set; 
+            get; set;
         }
         public string Classroom 
         { 

@@ -47,7 +47,7 @@ namespace CourseApplication.Services
             nodeTableRow.RemoveAt(0);
             nodeTableRow.RemoveAt(0);
             nodeTableRow.RemoveAt(0);
-            nodeTableRow.RemoveAt(nodeTableRow.Count - 1);
+            nodeTableRow.RemoveAt(GetLastRow(nodeTableRow));
             return nodeTableRow;
         }
 

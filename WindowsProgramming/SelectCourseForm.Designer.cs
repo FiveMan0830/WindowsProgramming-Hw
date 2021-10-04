@@ -31,6 +31,8 @@ namespace CourseApplication
         {
             this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._courseSelectGridView = new System.Windows.Forms.DataGridView();
+            this._courseSubmitButton = new System.Windows.Forms.Button();
+            this._courseCheckResultButton = new System.Windows.Forms.Button();
             this._courseSelectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._courseIdTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._classNameTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +44,10 @@ namespace CourseApplication
             this._sundayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._mondayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tuesdayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._WednesdayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._wednesdayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._thursdayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._fridayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._saturdayTextbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._saturdayTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._classroomTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._numberOfStudentsTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._numberOfDropStudentsTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,11 +55,8 @@ namespace CourseApplication
             this._languageTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._syllabusTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._noteTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._auditTextbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._auditTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._experimentTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._courseSubmitButton = new System.Windows.Forms.Button();
-            this._courseCheckResultButton = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._courseSelectGridView)).BeginInit();
             this.SuspendLayout();
@@ -100,10 +99,10 @@ namespace CourseApplication
             this._sundayTextBox,
             this._mondayTextBox,
             this._tuesdayTextBox,
-            this._WednesdayTextBox,
+            this._wednesdayTextBox,
             this._thursdayTextBox,
             this._fridayTextBox,
-            this._saturdayTextbox,
+            this._saturdayTextBox,
             this._classroomTextBox,
             this._numberOfStudentsTextBox,
             this._numberOfDropStudentsTextBox,
@@ -111,211 +110,15 @@ namespace CourseApplication
             this._languageTextBox,
             this._syllabusTextBox,
             this._noteTextBox,
-            this._auditTextbox,
+            this._auditTextBox,
             this._experimentTextBox});
             this._tableLayoutPanel1.SetColumnSpan(this._courseSelectGridView, 3);
             this._courseSelectGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._courseSelectGridView.Location = new System.Drawing.Point(3, 3);
             this._courseSelectGridView.Name = "_courseSelectGridView";
-            this._courseSelectGridView.ReadOnly = true;
             this._courseSelectGridView.RowTemplate.Height = 24;
             this._courseSelectGridView.Size = new System.Drawing.Size(1152, 520);
             this._courseSelectGridView.TabIndex = 0;
-            // 
-            // _courseSelectCheckBox
-            // 
-            this._courseSelectCheckBox.DataPropertyName = "IsCourseSelected";
-            this._courseSelectCheckBox.FalseValue = "false";
-            this._courseSelectCheckBox.HeaderText = "選擇";
-            this._courseSelectCheckBox.Name = "_courseSelectCheckBox";
-            this._courseSelectCheckBox.ReadOnly = true;
-            this._courseSelectCheckBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._courseSelectCheckBox.TrueValue = "true";
-            this._courseSelectCheckBox.Width = 32;
-            // 
-            // _courseIdTextBox
-            // 
-            this._courseIdTextBox.DataPropertyName = "Course.CourseId";
-            this._courseIdTextBox.HeaderText = "課號";
-            this._courseIdTextBox.Name = "_courseIdTextBox";
-            this._courseIdTextBox.ReadOnly = true;
-            this._courseIdTextBox.Width = 51;
-            // 
-            // _classNameTextBox
-            // 
-            this._classNameTextBox.DataPropertyName = "Course.CourseName";
-            this._classNameTextBox.HeaderText = "課程名稱";
-            this._classNameTextBox.Name = "_classNameTextBox";
-            this._classNameTextBox.ReadOnly = true;
-            this._classNameTextBox.Width = 61;
-            // 
-            // _stageTextBox
-            // 
-            this._stageTextBox.DataPropertyName = "Course.Stage";
-            this._stageTextBox.HeaderText = "階段";
-            this._stageTextBox.Name = "_stageTextBox";
-            this._stageTextBox.ReadOnly = true;
-            this._stageTextBox.Width = 51;
-            // 
-            // _creditTextBox
-            // 
-            this._creditTextBox.DataPropertyName = "Course.Credit";
-            this._creditTextBox.HeaderText = "學分數";
-            this._creditTextBox.Name = "_creditTextBox";
-            this._creditTextBox.ReadOnly = true;
-            this._creditTextBox.Width = 61;
-            // 
-            // _hourTextBox
-            // 
-            this._hourTextBox.DataPropertyName = "Course.Hour";
-            this._hourTextBox.HeaderText = "時數";
-            this._hourTextBox.Name = "_hourTextBox";
-            this._hourTextBox.ReadOnly = true;
-            this._hourTextBox.Width = 51;
-            // 
-            // _necessityTextBox
-            // 
-            this._necessityTextBox.DataPropertyName = "Course.Necessity";
-            this._necessityTextBox.HeaderText = "選必修";
-            this._necessityTextBox.Name = "_necessityTextBox";
-            this._necessityTextBox.ReadOnly = true;
-            this._necessityTextBox.Width = 61;
-            // 
-            // _teacherTextBox
-            // 
-            this._teacherTextBox.DataPropertyName = "Course.Teacher";
-            this._teacherTextBox.HeaderText = "教師";
-            this._teacherTextBox.Name = "_teacherTextBox";
-            this._teacherTextBox.ReadOnly = true;
-            this._teacherTextBox.Width = 51;
-            // 
-            // _sundayTextBox
-            // 
-            this._sundayTextBox.DataPropertyName = "Course.CourseTime.Sunday";
-            this._sundayTextBox.HeaderText = "日";
-            this._sundayTextBox.Name = "_sundayTextBox";
-            this._sundayTextBox.ReadOnly = true;
-            this._sundayTextBox.Width = 42;
-            // 
-            // _mondayTextBox
-            // 
-            this._mondayTextBox.DataPropertyName = "Course.CourseTime.Monday";
-            this._mondayTextBox.HeaderText = "一";
-            this._mondayTextBox.Name = "_mondayTextBox";
-            this._mondayTextBox.ReadOnly = true;
-            this._mondayTextBox.Width = 42;
-            // 
-            // _tuesdayTextBox
-            // 
-            this._tuesdayTextBox.DataPropertyName = "Course.CourseTime.Tuesday";
-            this._tuesdayTextBox.HeaderText = "二";
-            this._tuesdayTextBox.Name = "_tuesdayTextBox";
-            this._tuesdayTextBox.ReadOnly = true;
-            this._tuesdayTextBox.Width = 42;
-            // 
-            // _WednesdayTextBox
-            // 
-            this._WednesdayTextBox.DataPropertyName = "Course.CourseTime.Wednesday";
-            this._WednesdayTextBox.HeaderText = "三";
-            this._WednesdayTextBox.Name = "_WednesdayTextBox";
-            this._WednesdayTextBox.ReadOnly = true;
-            this._WednesdayTextBox.Width = 42;
-            // 
-            // _thursdayTextBox
-            // 
-            this._thursdayTextBox.DataPropertyName = "Course.CourseTime.Thursday";
-            this._thursdayTextBox.HeaderText = "四";
-            this._thursdayTextBox.Name = "_thursdayTextBox";
-            this._thursdayTextBox.ReadOnly = true;
-            this._thursdayTextBox.Width = 42;
-            // 
-            // _fridayTextBox
-            // 
-            this._fridayTextBox.DataPropertyName = "Course.CourseTime.Friday";
-            this._fridayTextBox.HeaderText = "五";
-            this._fridayTextBox.Name = "_fridayTextBox";
-            this._fridayTextBox.ReadOnly = true;
-            this._fridayTextBox.Width = 42;
-            // 
-            // _saturdayTextbox
-            // 
-            this._saturdayTextbox.DataPropertyName = "Course.CourseTime.Saturday";
-            this._saturdayTextbox.HeaderText = "六";
-            this._saturdayTextbox.Name = "_saturdayTextbox";
-            this._saturdayTextbox.ReadOnly = true;
-            this._saturdayTextbox.Width = 42;
-            // 
-            // _classroomTextBox
-            // 
-            this._classroomTextBox.DataPropertyName = "Course.Classroom";
-            this._classroomTextBox.HeaderText = "教室";
-            this._classroomTextBox.Name = "_classroomTextBox";
-            this._classroomTextBox.ReadOnly = true;
-            this._classroomTextBox.Width = 51;
-            // 
-            // _numberOfStudentsTextBox
-            // 
-            this._numberOfStudentsTextBox.DataPropertyName = "Course.NumberOfStudents";
-            this._numberOfStudentsTextBox.HeaderText = "修課人數";
-            this._numberOfStudentsTextBox.Name = "_numberOfStudentsTextBox";
-            this._numberOfStudentsTextBox.ReadOnly = true;
-            this._numberOfStudentsTextBox.Width = 61;
-            // 
-            // _numberOfDropStudentsTextBox
-            // 
-            this._numberOfDropStudentsTextBox.DataPropertyName = "Course.NumberOfDropStudents";
-            this._numberOfDropStudentsTextBox.HeaderText = "撤選人數";
-            this._numberOfDropStudentsTextBox.Name = "_numberOfDropStudentsTextBox";
-            this._numberOfDropStudentsTextBox.ReadOnly = true;
-            this._numberOfDropStudentsTextBox.Width = 61;
-            // 
-            // _teachingAssistantTextBox
-            // 
-            this._teachingAssistantTextBox.DataPropertyName = "Course.TeachingAssistant";
-            this._teachingAssistantTextBox.HeaderText = "TA";
-            this._teachingAssistantTextBox.Name = "_teachingAssistantTextBox";
-            this._teachingAssistantTextBox.ReadOnly = true;
-            this._teachingAssistantTextBox.Width = 45;
-            // 
-            // _languageTextBox
-            // 
-            this._languageTextBox.DataPropertyName = "Course.Language";
-            this._languageTextBox.HeaderText = "授課語言";
-            this._languageTextBox.Name = "_languageTextBox";
-            this._languageTextBox.ReadOnly = true;
-            this._languageTextBox.Width = 61;
-            // 
-            // _syllabusTextBox
-            // 
-            this._syllabusTextBox.DataPropertyName = "Course.Syllabus";
-            this._syllabusTextBox.HeaderText = "課程大綱與進度表";
-            this._syllabusTextBox.Name = "_syllabusTextBox";
-            this._syllabusTextBox.ReadOnly = true;
-            this._syllabusTextBox.Width = 83;
-            // 
-            // _noteTextBox
-            // 
-            this._noteTextBox.DataPropertyName = "Course.Note";
-            this._noteTextBox.HeaderText = "備註";
-            this._noteTextBox.Name = "_noteTextBox";
-            this._noteTextBox.ReadOnly = true;
-            this._noteTextBox.Width = 51;
-            // 
-            // _auditTextbox
-            // 
-            this._auditTextbox.DataPropertyName = "Course.Audit";
-            this._auditTextbox.HeaderText = "隨班附讀";
-            this._auditTextbox.Name = "_auditTextbox";
-            this._auditTextbox.ReadOnly = true;
-            this._auditTextbox.Width = 61;
-            // 
-            // _experimentTextBox
-            // 
-            this._experimentTextBox.DataPropertyName = "Course.Experiment";
-            this._experimentTextBox.HeaderText = "實驗實習";
-            this._experimentTextBox.Name = "_experimentTextBox";
-            this._experimentTextBox.ReadOnly = true;
-            this._experimentTextBox.Width = 61;
             // 
             // _courseSubmitButton
             // 
@@ -337,12 +140,176 @@ namespace CourseApplication
             this._courseCheckResultButton.Text = "查看選課結果";
             this._courseCheckResultButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // _courseSelectCheckBox
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Course";
-            this.dataGridViewTextBoxColumn1.HeaderText = "課號";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this._courseSelectCheckBox.DataPropertyName = "IsCourseSelected";
+            this._courseSelectCheckBox.FalseValue = "false";
+            this._courseSelectCheckBox.HeaderText = "選擇";
+            this._courseSelectCheckBox.Name = "_courseSelectCheckBox";
+            this._courseSelectCheckBox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._courseSelectCheckBox.TrueValue = "true";
+            this._courseSelectCheckBox.Width = 35;
+            // 
+            // _courseIdTextBox
+            // 
+            this._courseIdTextBox.DataPropertyName = "Course.CourseId";
+            this._courseIdTextBox.HeaderText = "課號";
+            this._courseIdTextBox.Name = "_courseIdTextBox";
+            this._courseIdTextBox.Width = 54;
+            // 
+            // _classNameTextBox
+            // 
+            this._classNameTextBox.DataPropertyName = "Course.CourseName";
+            this._classNameTextBox.HeaderText = "課程名稱";
+            this._classNameTextBox.Name = "_classNameTextBox";
+            this._classNameTextBox.Width = 78;
+            // 
+            // _stageTextBox
+            // 
+            this._stageTextBox.DataPropertyName = "Course.Stage";
+            this._stageTextBox.HeaderText = "階段";
+            this._stageTextBox.Name = "_stageTextBox";
+            this._stageTextBox.Width = 54;
+            // 
+            // _creditTextBox
+            // 
+            this._creditTextBox.DataPropertyName = "Course.Credit";
+            this._creditTextBox.HeaderText = "學分數";
+            this._creditTextBox.Name = "_creditTextBox";
+            this._creditTextBox.Width = 66;
+            // 
+            // _hourTextBox
+            // 
+            this._hourTextBox.DataPropertyName = "Course.Hour";
+            this._hourTextBox.HeaderText = "時數";
+            this._hourTextBox.Name = "_hourTextBox";
+            this._hourTextBox.Width = 54;
+            // 
+            // _necessityTextBox
+            // 
+            this._necessityTextBox.DataPropertyName = "Course.Necessity";
+            this._necessityTextBox.HeaderText = "選必修";
+            this._necessityTextBox.Name = "_necessityTextBox";
+            this._necessityTextBox.Width = 66;
+            // 
+            // _teacherTextBox
+            // 
+            this._teacherTextBox.DataPropertyName = "Course.Teacher";
+            this._teacherTextBox.HeaderText = "教師";
+            this._teacherTextBox.Name = "_teacherTextBox";
+            this._teacherTextBox.Width = 54;
+            // 
+            // _sundayTextBox
+            // 
+            this._sundayTextBox.DataPropertyName = "Course.CourseTime.Sunday";
+            this._sundayTextBox.HeaderText = "日";
+            this._sundayTextBox.Name = "_sundayTextBox";
+            this._sundayTextBox.Width = 42;
+            // 
+            // _mondayTextBox
+            // 
+            this._mondayTextBox.DataPropertyName = "Course.CourseTime.Monday";
+            this._mondayTextBox.HeaderText = "一";
+            this._mondayTextBox.Name = "_mondayTextBox";
+            this._mondayTextBox.Width = 42;
+            // 
+            // _tuesdayTextBox
+            // 
+            this._tuesdayTextBox.DataPropertyName = "Course.CourseTime.Tuesday";
+            this._tuesdayTextBox.HeaderText = "二";
+            this._tuesdayTextBox.Name = "_tuesdayTextBox";
+            this._tuesdayTextBox.Width = 42;
+            // 
+            // _WednesdayTextBox
+            // 
+            this._wednesdayTextBox.DataPropertyName = "Course.CourseTime.Wednesday";
+            this._wednesdayTextBox.HeaderText = "三";
+            this._wednesdayTextBox.Name = "_wednesdayTextBox";
+            this._wednesdayTextBox.Width = 42;
+            // 
+            // _thursdayTextBox
+            // 
+            this._thursdayTextBox.DataPropertyName = "Course.CourseTime.Thursday";
+            this._thursdayTextBox.HeaderText = "四";
+            this._thursdayTextBox.Name = "_thursdayTextBox";
+            this._thursdayTextBox.Width = 42;
+            // 
+            // _fridayTextBox
+            // 
+            this._fridayTextBox.DataPropertyName = "Course.CourseTime.Friday";
+            this._fridayTextBox.HeaderText = "五";
+            this._fridayTextBox.Name = "_fridayTextBox";
+            this._fridayTextBox.Width = 42;
+            // 
+            // _saturdayTextBox
+            // 
+            this._saturdayTextBox.DataPropertyName = "Course.CourseTime.Saturday";
+            this._saturdayTextBox.HeaderText = "六";
+            this._saturdayTextBox.Name = "_saturdayTextBox";
+            this._saturdayTextBox.Width = 42;
+            // 
+            // _classroomTextBox
+            // 
+            this._classroomTextBox.DataPropertyName = "Course.Classroom";
+            this._classroomTextBox.HeaderText = "教室";
+            this._classroomTextBox.Name = "_classroomTextBox";
+            this._classroomTextBox.Width = 54;
+            // 
+            // _numberOfStudentsTextBox
+            // 
+            this._numberOfStudentsTextBox.DataPropertyName = "Course.NumberOfStudents";
+            this._numberOfStudentsTextBox.HeaderText = "修課人數";
+            this._numberOfStudentsTextBox.Name = "_numberOfStudentsTextBox";
+            this._numberOfStudentsTextBox.Width = 78;
+            // 
+            // _numberOfDropStudentsTextBox
+            // 
+            this._numberOfDropStudentsTextBox.DataPropertyName = "Course.NumberOfDropStudents";
+            this._numberOfDropStudentsTextBox.HeaderText = "撤選人數";
+            this._numberOfDropStudentsTextBox.Name = "_numberOfDropStudentsTextBox";
+            this._numberOfDropStudentsTextBox.Width = 78;
+            // 
+            // _teachingAssistantTextBox
+            // 
+            this._teachingAssistantTextBox.DataPropertyName = "Course.TeachingAssistant";
+            this._teachingAssistantTextBox.HeaderText = "TA";
+            this._teachingAssistantTextBox.Name = "_teachingAssistantTextBox";
+            this._teachingAssistantTextBox.Width = 45;
+            // 
+            // _languageTextBox
+            // 
+            this._languageTextBox.DataPropertyName = "Course.Language";
+            this._languageTextBox.HeaderText = "授課語言";
+            this._languageTextBox.Name = "_languageTextBox";
+            this._languageTextBox.Width = 78;
+            // 
+            // _syllabusTextBox
+            // 
+            this._syllabusTextBox.DataPropertyName = "Course.Syllabus";
+            this._syllabusTextBox.HeaderText = "課程大綱與進度表";
+            this._syllabusTextBox.Name = "_syllabusTextBox";
+            this._syllabusTextBox.Width = 83;
+            // 
+            // _noteTextBox
+            // 
+            this._noteTextBox.DataPropertyName = "Course.Note";
+            this._noteTextBox.HeaderText = "備註";
+            this._noteTextBox.Name = "_noteTextBox";
+            this._noteTextBox.Width = 51;
+            // 
+            // _auditTextBox
+            // 
+            this._auditTextBox.DataPropertyName = "Course.Audit";
+            this._auditTextBox.HeaderText = "隨班附讀";
+            this._auditTextBox.Name = "_auditTextBox";
+            this._auditTextBox.Width = 61;
+            // 
+            // _experimentTextBox
+            // 
+            this._experimentTextBox.DataPropertyName = "Course.Experiment";
+            this._experimentTextBox.HeaderText = "實驗實習";
+            this._experimentTextBox.Name = "_experimentTextBox";
+            this._experimentTextBox.Width = 61;
             // 
             // SelectCourseForm
             // 
@@ -377,10 +344,10 @@ namespace CourseApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn _sundayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _mondayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _tuesdayTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _WednesdayTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _wednesdayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _thursdayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _fridayTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _saturdayTextbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _saturdayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _classroomTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _numberOfStudentsTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _numberOfDropStudentsTextBox;
@@ -388,9 +355,8 @@ namespace CourseApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn _languageTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _syllabusTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _noteTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _auditTextbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _auditTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _experimentTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }
 
