@@ -31,7 +31,7 @@ namespace CourseApplication.Views.CourseSelecting
         {
             this.components = new System.ComponentModel.Container();
             this._courseSelectingDataGridView = new System.Windows.Forms.DataGridView();
-            this.courseApplicationModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._courseApplicationModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._courseSelectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._courseIdTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._classNameTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@ namespace CourseApplication.Views.CourseSelecting
             this._auditTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._experimentTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._courseSelectingDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseApplicationModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._courseApplicationModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _courseSelectingDataGridView
@@ -91,7 +91,7 @@ namespace CourseApplication.Views.CourseSelecting
             this._noteTextBox,
             this._auditTextBox,
             this._experimentTextBox});
-            this._courseSelectingDataGridView.DataSource = this.courseApplicationModelBindingSource;
+            this._courseSelectingDataGridView.DataSource = this._courseApplicationModelBindingSource;
             this._courseSelectingDataGridView.Location = new System.Drawing.Point(4, 4);
             this._courseSelectingDataGridView.Name = "_courseSelectingDataGridView";
             this._courseSelectingDataGridView.RowTemplate.Height = 24;
@@ -100,7 +100,7 @@ namespace CourseApplication.Views.CourseSelecting
             // 
             // courseApplicationModelBindingSource
             // 
-            this.courseApplicationModelBindingSource.DataSource = typeof(CourseApplication.Model.CourseApplicationModel);
+            this._courseApplicationModelBindingSource.DataSource = typeof(CourseApplication.Model.CourseApplicationModel);
             // 
             // _courseSelectCheckBox
             // 
@@ -281,7 +281,7 @@ namespace CourseApplication.Views.CourseSelecting
             this.Name = "CourseSelectingDataGridComponent";
             this.Size = new System.Drawing.Size(979, 382);
             ((System.ComponentModel.ISupportInitialize)(this._courseSelectingDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseApplicationModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._courseApplicationModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,7 +289,7 @@ namespace CourseApplication.Views.CourseSelecting
         #endregion
 
         private System.Windows.Forms.DataGridView _courseSelectingDataGridView;
-        private System.Windows.Forms.BindingSource courseApplicationModelBindingSource;
+        private System.Windows.Forms.BindingSource _courseApplicationModelBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseSelectCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _courseIdTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _classNameTextBox;

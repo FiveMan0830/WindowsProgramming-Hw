@@ -18,13 +18,12 @@ namespace CourseApplication.Views.StartUp
 {
     public partial class StartUpForm : Form
     {
-        string ENABLED_ATTRIBUTE = "Enabled";
+        public const string ENABLED_ATTRIBUTE = "Enabled";
         CourseSelectingPresentationModel _courseSelectingPresentationModel;
         CourseSelectingForm _courseSelectingForm;
         CourseManagementPresentationModel _courseManagementPresentationModel;
         CourseManagementForm _courseManagementForm;
         StartUpPresentationModel _startUpPresentationModel;
-
 
         public StartUpForm(StartUpPresentationModel model)
         {
@@ -81,7 +80,6 @@ namespace CourseApplication.Views.StartUp
             _exitButton.Click += new EventHandler(ExitButtonClickEvent);
         }
 
-
         /// <summary>
         /// ExitButton按下
         /// </summary>
@@ -97,7 +95,7 @@ namespace CourseApplication.Views.StartUp
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseSelectingForm_Closing(object sender, EventArgs e)
+        private void CloseCourseSelectingForm(object sender, EventArgs e)
         {
             _startUpPresentationModel.IsNotCourseSelectingFormOpened = true;
             RenderAllComponents();
@@ -108,7 +106,7 @@ namespace CourseApplication.Views.StartUp
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseManagementForm_Closing(object sender, EventArgs e)
+        private void CloseCourseManagementForm(object sender, EventArgs e)
         {
             _startUpPresentationModel.IsNotCourseManagementFormOpened = true;
             RenderAllComponents();
@@ -122,7 +120,7 @@ namespace CourseApplication.Views.StartUp
         private void CourseSelectButtonClickEvent(object sender, EventArgs e)
         {
             _courseSelectingForm = new CourseSelectingForm(_courseSelectingPresentationModel);
-            _courseSelectingForm.FormClosing += new FormClosingEventHandler(_courseSelectingForm_Closing);
+            _courseSelectingForm.FormClosing += new FormClosingEventHandler(CloseCourseSelectingForm);
             _startUpPresentationModel.IsNotCourseSelectingFormOpened = false;
             RenderAllComponents();
             _courseSelectingForm.Show();
@@ -136,7 +134,7 @@ namespace CourseApplication.Views.StartUp
         private void CourseManageButtonClickEvent(object sender, EventArgs e)
         {
             _courseManagementForm = new CourseManagementForm(_courseManagementPresentationModel);
-            _courseManagementForm.FormClosing += new FormClosingEventHandler(_courseManagementForm_Closing);
+            _courseManagementForm.FormClosing += new FormClosingEventHandler(CloseCourseManagementForm);
             _startUpPresentationModel.IsNotCourseManagementFormOpened = false;
             RenderAllComponents();
             _courseManagementForm.Show();

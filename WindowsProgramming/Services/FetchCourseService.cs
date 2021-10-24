@@ -14,6 +14,7 @@ namespace CourseApplication.Services
     {
         private const string NODE_XPATH = "//body/table";
         private readonly HtmlWeb _webClient;
+        public const string BREAK_LINE = "\n";
         public FetchCourseService(HtmlWeb webClient)
         {
             _webClient = webClient;
@@ -30,17 +31,37 @@ namespace CourseApplication.Services
             HtmlDocument document = _webClient.Load(resource);
 
             HtmlNode nodeTable = document.DocumentNode.SelectSingleNode(NODE_XPATH);
-            HtmlNodeCollection nodeTableRow = nodeTable.ChildNodes;
+            HtmlNodeCollection nodeTableRow = GetChildNodes(nodeTable);
 
             IWebAnalyzer analyzer = new WebAnalyzer();
             RemoveRedundantNode(nodeTableRow, 0);
-            string departmentName = nodeTableRow.First().InnerText;
-            departmentName = departmentName.Replace("\n","");
+            string departmentName = GetDepartmentName(nodeTableRow);
+            departmentName = departmentName.Replace(BREAK_LINE, "");
             RemoveRedundantNode(nodeTableRow, 0);
             RemoveRedundantNode(nodeTableRow, 0);
             RemoveRedundantNode(nodeTableRow, GetLastRow(nodeTableRow));
             List<Course> courses = analyzer.Analyze(nodeTableRow);
             return courses;
+        }
+
+        /// <summary>
+        /// 取得子節點
+        /// </summary>
+        /// <param name="nodeTable"></param>
+        /// <returns></returns>
+        private HtmlNodeCollection GetChildNodes(HtmlNode nodeTable)
+        {
+            return nodeTable.ChildNodes;
+        }
+
+        /// <summary>
+        /// 取得科系名稱
+        /// </summary>
+        /// <param name="nodeTableRow"></param>
+        /// <returns></returns>
+        private string GetDepartmentName(HtmlNodeCollection nodeTableRow)
+        {
+            return nodeTableRow.First().InnerText;
         }
 
         /// <summary>

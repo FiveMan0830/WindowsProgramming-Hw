@@ -207,21 +207,21 @@ namespace CourseApplication.Builder
         private Course SetTime(HtmlNodeCollection nodeTableDatas, Course course)
         {
             CourseTime courseTime = new CourseTime();
-            const int SUNDAY_Index = 7;
-            const int MONDAY_Index = 8;
-            const int TUESDAY_Index = 9;
-            const int WEDNESDAY_Index = 10;
-            const int THURSDAY_Index = 11;
-            const int FRIDAY_Index = 12;
-            const int SATURDAY_Index = 13;
+            const int SUNDAY_INDEX = 7;
+            const int MONDAY_INDEX = 8;
+            const int TUESDAY_INDEX = 9;
+            const int WEDNESDAY_INDEX = 10;
+            const int THURSDAY_INDEX = 11;
+            const int FRIDAY_INDEX = 12;
+            const int SATURDAY_INDEX = 13;
 
-            course.Sunday = nodeTableDatas[SUNDAY_Index].InnerText.Trim();
-            course.Monday = nodeTableDatas[MONDAY_Index].InnerText.Trim();
-            course.Tuesday = nodeTableDatas[TUESDAY_Index].InnerText.Trim();
-            course.Wednesday = nodeTableDatas[WEDNESDAY_Index].InnerText.Trim();
-            course.Thursday = nodeTableDatas[THURSDAY_Index].InnerText.Trim();
-            course.Friday = nodeTableDatas[FRIDAY_Index].InnerText.Trim();
-            course.Saturday = nodeTableDatas[SATURDAY_Index].InnerText.Trim();
+            course.Sunday = nodeTableDatas[SUNDAY_INDEX].InnerText.Trim();
+            course.Monday = nodeTableDatas[MONDAY_INDEX].InnerText.Trim();
+            course.Tuesday = nodeTableDatas[TUESDAY_INDEX].InnerText.Trim();
+            course.Wednesday = nodeTableDatas[WEDNESDAY_INDEX].InnerText.Trim();
+            course.Thursday = nodeTableDatas[THURSDAY_INDEX].InnerText.Trim();
+            course.Friday = nodeTableDatas[FRIDAY_INDEX].InnerText.Trim();
+            course.Saturday = nodeTableDatas[SATURDAY_INDEX].InnerText.Trim();
             return course;
         }
 
@@ -261,9 +261,9 @@ namespace CourseApplication.Builder
         /// </summary>
         /// <param name="nodeTableDatas"></param>
         /// <returns></returns>
-        private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int Index)
+        private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int index)
         {
-            return nodeTableDatas[Index].InnerText.Trim();
+            return nodeTableDatas[index].InnerText.Trim();
         }
 
         /// <summary>

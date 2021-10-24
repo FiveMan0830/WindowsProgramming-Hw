@@ -13,10 +13,19 @@ namespace CourseApplication.PresentationModels.CourseSelecting
     public class CourseSelectingPresentationModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public event CourseDtosChangedEventHandler CourseDtosChanged;
+        public event CourseDtosChangedEventHandler _courseDtosChanged;
         public delegate void CourseDtosChangedEventHandler();
-        public CourseApplicationModel _courseApplicationModel;
-        public Dictionary<string ,List<CourseSelectingDto>> _courses;
+        public const string COMPUTER_SCIENCE_THIRD_GRADE_TEXT = "資工三";
+        public const string ELECTRON_ENGINEERING_THIRD_GRADE_TEXT = "電子三甲";
+        public CourseApplicationModel _courseApplicationModel
+        {
+            get;
+        }
+
+        public Dictionary<string ,List<CourseSelectingDto>> _courses
+        {
+            get;
+        }
         public bool IsNotCourseSelectionResultFormOpened
         {
             get; set;
@@ -26,9 +35,9 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         {
             get
             {
-                foreach(var pair in _courses)
+                foreach (var pair in _courses)
                 {
-                    foreach(var dto in pair.Value)
+                    foreach (var dto in pair.Value)
                     {
                         if (dto.IsCourseSelected == true)
                             return true;
@@ -42,7 +51,7 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         {
             IsNotCourseSelectionResultFormOpened = true;
             _courseApplicationModel = model;
-            _courseApplicationModel.ChosenCourseChanged += InitializeCourse;
+            _courseApplicationModel._chosenCourseChanged += InitializeCourse;
             _courses = new Dictionary<string, List<CourseSelectingDto>>();
             InitializeCourse();
         }
@@ -53,23 +62,42 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         public void InitializeCourse()
         {
             _courses.Clear();
-            _courses.Add("資工三", GetCoursesByDepartment("資工三"));
-            _courses.Add("電子三甲", GetCoursesByDepartment("電子三甲"));
+            _courses.Add(COMPUTER_SCIENCE_THIRD_GRADE_TEXT, GetCoursesByDepartment(COMPUTER_SCIENCE_THIRD_GRADE_TEXT));
+            _courses.Add(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT, GetCoursesByDepartment(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT));
             NotifyOnCourseDtosChanged();
         }
 
         /// <summary>
         /// 送出選擇
         /// </summary>
-        public void NoticeOnSelectCourse()
+        public string NoticeOnSelectCourse()
         {
-            string errorMessage = null;
+            List<Course> selectedCourses = new List<Course>();
             foreach (var pair in _courses)
                 foreach (var dto in pair.Value)
-                    if (dto.IsCourseSelected == true)
-                        errorMessage = _courseApplicationModel.AddCourseChosen(dto.Course);
-            //if(errorMessage != null)
+                    if (GetIsCourseSelected(dto) == true)
+                        selectedCourses.Add(GetCourseByDto(dto));
+            return _courseApplicationModel.AddCourseChosen(selectedCourses);
+        }
 
+        /// <summary>
+        /// 取得打勾與否
+        /// </summary>
+        /// <param name="courseSelectingDto"></param>
+        /// <returns></returns>
+        private bool GetIsCourseSelected(CourseSelectingDto courseSelectingDto)
+        {
+            return courseSelectingDto.IsCourseSelected;
+        }
+
+        /// <summary>
+        /// 取得Dto的課程
+        /// </summary>
+        /// <param name="courseSelectingDto"></param>
+        /// <returns></returns>
+        private Course GetCourseByDto(CourseSelectingDto courseSelectingDto)
+        {
+            return courseSelectingDto.Course;
         }
 
         /// <summary>
@@ -77,9 +105,9 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         /// </summary>
         public void NoticeOnCheckBoxClicked(int index, string departmentName)
         {
-            foreach(var pair in _courses)
+            foreach (var pair in _courses)
             {
-                if(pair.Key.Equals(departmentName))
+                if (pair.Key.Equals(departmentName))
                 {
                     (pair.Value)[index].IsCourseSelected = !(pair.Value)[index].IsCourseSelected;
                 }
@@ -104,7 +132,7 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         public List<CourseSelectingDto> GetCoursesByDepartment(string departmentName)
         {
             List<CourseSelectingDto> courses = new List<CourseSelectingDto>();
-            foreach(Course course in _courseApplicationModel.GetDepartmentByName(departmentName).Courses)
+            foreach (Course course in _courseApplicationModel.GetDepartmentByName(departmentName).Courses)
             {
                 courses.Add(new CourseSelectingDto(course));
             }
@@ -121,9 +149,9 @@ namespace CourseApplication.PresentationModels.CourseSelecting
             IList<Course> chosenCourses = _courseApplicationModel._chosenCourses;
             List<CourseSelectingDto> result = courses;
             foreach (var i in chosenCourses)
-                for(int j = 0 ; j < result.Count ; j++)
+                for (int j = 0 ; j < result.Count ; j++)
                 {
-                    if(result[j].Course.Equals(i))
+                    if (result[j].Course.Equals(i))
                     {
                         result.RemoveAt(j);
                         break;
@@ -132,11 +160,13 @@ namespace CourseApplication.PresentationModels.CourseSelecting
             return result;
         }
 
-
+        /// <summary>
+        /// 課程變更通知
+        /// </summary>
         private void NotifyOnCourseDtosChanged()
         {
-            if (CourseDtosChanged != null)
-                CourseDtosChanged();
+            if (_courseDtosChanged != null)
+                _courseDtosChanged();
         }
     }
 }

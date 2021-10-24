@@ -18,13 +18,8 @@ namespace CourseApplication.Views.CourseSelectionResult
         {
             _courseSelectionResultPresentationModel = courseSelectionResultPresentationModel;
             InitializeComponent();
-            InitializeChosenCourse();
-            _courseSelectingDataGridView.CellContentClick += new DataGridViewCellEventHandler(_courseSelectingDataGridView_CellContentClick);
-        }
-
-        public void InitializeChosenCourse()
-        {
             _courseSelectingDataGridView.DataSource = _courseSelectionResultPresentationModel._courseApplicationModel._chosenCourses;
+            _courseSelectingDataGridView.CellContentClick += new DataGridViewCellEventHandler(ClickCourseSelectingDataGridViewCellContent);
         }
 
         /// <summary>
@@ -32,7 +27,7 @@ namespace CourseApplication.Views.CourseSelectionResult
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseSelectingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ClickCourseSelectingDataGridViewCellContent(object sender, DataGridViewCellEventArgs e)
         {
             if (IsCourseDropColumn(e.ColumnIndex) && e.RowIndex != -1)
             {

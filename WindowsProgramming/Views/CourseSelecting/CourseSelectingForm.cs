@@ -17,18 +17,20 @@ namespace CourseApplication.Views.CourseSelecting
 {
     public partial class CourseSelectingForm : Form
     {
-
-        string ENABLED_ATTRIBUTE = "Enabled";
+        public const string ENABLED_ATTRIBUTE = "Enabled";
+        public const string COMPUTER_SCIENCE_THIRD_GRADE_TEXT = "資工三";
+        public const string ELECTRON_ENGINEERING_THIRD_GRADE_TEXT = "電子三甲";
         CourseSelectingPresentationModel _courseSelectingPresentationModel;
         CourseSelectionResultPresentationModel _courseSelectionResultPresentationModel;
         CourseSelectionResultForm _courseSelectionResultForm;
+        ErrorForm _errorForm;
         public CourseSelectingForm(CourseSelectingPresentationModel courseSelectingPresentationModel)
         {
             _courseSelectingPresentationModel = courseSelectingPresentationModel;
-            _courseSelectingPresentationModel.CourseDtosChanged += RenderGridData;
+            _courseSelectingPresentationModel._courseDtosChanged += RenderGridData;
             _courseSelectionResultPresentationModel = new CourseSelectionResultPresentationModel(_courseSelectingPresentationModel._courseApplicationModel);
-            _courseSelectingDataGridComponent1 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, "資工三");
-            _courseSelectingDataGridComponent2 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, "電子三甲");
+            _courseSelectingDataGridComponent1 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            _courseSelectingDataGridComponent2 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
             InitializeComponent();
             InitializeSelectingSubmitButton();
             InitializeSelectionResultButton();
@@ -56,10 +58,10 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         private void RenderGridData()
         {
-            List<CourseSelectingDto> coursesCSIE = _courseSelectingPresentationModel.GetCoursesByDepartment("資工三");
-            List<CourseSelectingDto> coursesCC = _courseSelectingPresentationModel.GetCoursesByDepartment("電子三甲");
-            _courseSelectingDataGridComponent1.GetCourseSelectingDataGridView().DataSource = coursesCSIE;
-            _courseSelectingDataGridComponent2.GetCourseSelectingDataGridView().DataSource = coursesCC;
+            List<CourseSelectingDto> coursesComputerScience = _courseSelectingPresentationModel.GetCoursesByDepartment(COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            List<CourseSelectingDto> coursesElectricEngineer = _courseSelectingPresentationModel.GetCoursesByDepartment(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
+            _courseSelectingDataGridComponent1.GetCourseSelectingDataGridView().DataSource = coursesComputerScience;
+            _courseSelectingDataGridComponent2.GetCourseSelectingDataGridView().DataSource = coursesElectricEngineer;
         }
 
         /// <summary>
@@ -76,14 +78,28 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseSelectingSubmitButton_Click(object sender, EventArgs e)
+        private void CourseSelectingSubmitButtonClick(object sender, EventArgs e)
         {
-            // identify choosed course
+            string errorString = null;
             // move course
-            _courseSelectingPresentationModel.NoticeOnSelectCourse();
+            errorString = GetSelectCourseError();
+            if (errorString != "")
+                _errorForm = new ErrorForm(errorString);
+            else
+                _errorForm = new ErrorForm();
+            _errorForm.ShowDialog();
             _courseSelectingPresentationModel._courses.Clear();
             _courseSelectingPresentationModel.InitializeCourse();
             RenderGridData();
+        }
+
+        /// <summary>
+        /// 選課
+        /// </summary>
+        /// <returns></returns>
+        private string GetSelectCourseError()
+        {
+            return _courseSelectingPresentationModel.NoticeOnSelectCourse();
         }
 
         /// <summary>
@@ -91,7 +107,7 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseSelectionResultForm_Closing(object sender, EventArgs e)
+        private void CourseSelectionResultFormClosing(object sender, EventArgs e)
         {
             _courseSelectingPresentationModel.IsNotCourseSelectionResultFormOpened = true;
             RenderAllComponents();
@@ -102,10 +118,10 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _courseSelectionResultButton_Click(object sender, EventArgs e)
+        private void CourseSelectionResultButtonClick(object sender, EventArgs e)
         {
             _courseSelectionResultForm = new CourseSelectionResultForm(_courseSelectionResultPresentationModel);
-            _courseSelectionResultForm.FormClosing += new FormClosingEventHandler(_courseSelectionResultForm_Closing);
+            _courseSelectionResultForm.FormClosing += new FormClosingEventHandler(CourseSelectionResultFormClosing);
             _courseSelectingPresentationModel.IsNotCourseSelectionResultFormOpened = false;
             _courseSelectionResultForm.Show();
             RenderAllComponents();

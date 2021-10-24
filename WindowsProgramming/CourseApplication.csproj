@@ -88,6 +88,12 @@
     <Compile Include="Views\CourseSelecting\CourseSelectingDataGridComponent.Designer.cs">
       <DependentUpon>CourseSelectingDataGridComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CourseSelecting\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CourseSelecting\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CourseSelectionResult\CourseSelectionResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CourseSelecting\CourseSelectingDataGridComponent.resx">
       <DependentUpon>CourseSelectingDataGridComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CourseSelecting\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CourseSelectionResult\CourseSelectionResultForm.resx">
       <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>

@@ -15,3 +15,4 @@ C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\obj\Debug\Cour
 C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\obj\Debug\CourseApplication.Views.CourseSelecting.CourseSelectingDataGridComponent.resources
 C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\obj\Debug\CourseApplication.Views.CourseSelectionResult.CourseSelectionResultForm.resources
 C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\obj\Debug\CourseApplication.Views.CourseManagement.CourseManagementForm.resources
+C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\obj\Debug\CourseApplication.Views.CourseSelecting.ErrorForm.resources

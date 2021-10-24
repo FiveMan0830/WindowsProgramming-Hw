@@ -9,7 +9,10 @@ namespace CourseApplication.PresentationModels.CourseSelectionResult
 {
     public class CourseSelectionResultPresentationModel
     {
-        public CourseApplicationModel _courseApplicationModel;
+        public CourseApplicationModel _courseApplicationModel
+        {
+            get;
+        }
         public CourseSelectionResultPresentationModel(CourseApplicationModel courseApplicationModel)
         {
             _courseApplicationModel = courseApplicationModel;

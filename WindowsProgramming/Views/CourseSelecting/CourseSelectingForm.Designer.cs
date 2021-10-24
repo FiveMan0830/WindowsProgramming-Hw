@@ -67,7 +67,7 @@ namespace CourseApplication.Views.CourseSelecting
             this._courseSelectingSubmitButton.TabIndex = 0;
             this._courseSelectingSubmitButton.Text = "確認送出";
             this._courseSelectingSubmitButton.UseVisualStyleBackColor = true;
-            this._courseSelectingSubmitButton.Click += new System.EventHandler(this._courseSelectingSubmitButton_Click);
+            this._courseSelectingSubmitButton.Click += new System.EventHandler(this.CourseSelectingSubmitButtonClick);
             // 
             // _courseSelectionResultButton
             // 
@@ -78,7 +78,7 @@ namespace CourseApplication.Views.CourseSelecting
             this._courseSelectionResultButton.TabIndex = 1;
             this._courseSelectionResultButton.Text = "查看選課結果";
             this._courseSelectionResultButton.UseVisualStyleBackColor = true;
-            this._courseSelectionResultButton.Click += new System.EventHandler(this._courseSelectionResultButton_Click);
+            this._courseSelectionResultButton.Click += new System.EventHandler(this.CourseSelectionResultButtonClick);
             // 
             // _courseSelectingTabControl
             // 
