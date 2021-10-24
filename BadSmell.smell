@@ -185,18 +185,147 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Unsuitable naming(名不符實)-InvertBindingHelper(invert)</SmellType>
+              <HashCode>UnsuitableNaming.CourseApplication.Helper.InvertBindingHelper.InvertBindingHelper</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>InvertBindingHelper.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Unsuitable naming(名不符實)-InvertBool(invert, bool)</SmellType>
+              <HashCode>UnsuitableNaming.InvertBindingHelper.InvertBool.InvertBool</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>InvertBindingHelper.cs</File>
+              <Line>40</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>ICS(函式-2)</SmellType>
+              <HashCode>Method2.InvertBindingHelper.InvertBool</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>InvertBindingHelper.cs</File>
+              <Line>40</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Unsuitable naming(名不符實)-Curricula(curricula)</SmellType>
+              <HashCode>UnsuitableNaming.CourseApplicationModel.Curricula.Curricula</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>CourseApplicationModel.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>ICS(空白與空行-17)</SmellType>
+              <HashCode>SpacingAndNewLine17.StartUpForm.cs.2.        }.        /// &lt;summary&gt;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>StartUpForm.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(空白與空行-17) 一次不加多個空行(若發生時，則指定在多個空行的第一行即可)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>ICS(空白與空行-16)</SmellType>
+              <HashCode>SpacingAndNewLine16.StartUpForm.ExitButtonClickEvent.2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>StartUpForm.cs</File>
+              <Line>62</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(空白與空行-16) 每個函式之間加一個空行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.StartUpForm.ENABLED_ATTRIBUTE</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseApplication</Project>
+              <File>StartUpForm.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Unresolved warnings(忽視警告)-在此系統上找不到自訂工具 'CourseSelectingTabUserControl'。</SmellType>
+              <HashCode>WindowsProgramming\CourseApplication.CourseSelectingDataGridComponent.cs.Unresolved warnings(忽視警告)-在此系統上找不到自訂工具 'CourseSelectingTabUserControl'。.0</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>WindowsProgramming\CourseApplication</Project>
+              <File>CourseSelectingDataGridComponent.cs</File>
+              <Line>0</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>Builder\CourseBuilder\CourseBuilder.cs</RelativePath>
+                <RelativePath>Dto\CourseSelectingDto.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Builder\Interface\ICourseBuilder.cs</RelativePath>
+                <RelativePath>Helper\InvertBindingHelper.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -206,22 +335,42 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\CourseTime.cs</RelativePath>
+                <RelativePath>Model\CourseApplicationModel.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Dto\CourseInfoDto.cs</RelativePath>
+                <RelativePath>Model\CourseParts\CourseTime.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Parser\Interface\IWebAnalyzer.cs</RelativePath>
+                <RelativePath>Model\Curriculum.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Parser\WebAnalyzer\WebAnalyzer.cs</RelativePath>
+                <RelativePath>Model\Department.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseManagement\CourseManagementPresentationModel.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseSelecting\CourseSelectingPresentationModel.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseSelectionResult\CourseSelectionResultPresentationModel.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\StartUp\StartUpPresentationModel.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -246,33 +395,38 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SelectCourseForm.cs</RelativePath>
+                <RelativePath>Views\CourseSelecting\CourseSelectingDataGridComponent.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
-                <AnalysisFileType>ViewOrController</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SelectCourseForm.Designer.cs</RelativePath>
+                <RelativePath>Views\CourseSelecting\CourseSelectingDataGridComponent.Designer.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SelectCoursePresentationModel.cs</RelativePath>
+                <RelativePath>Views\CourseSelecting\CourseSelectingForm.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Services\FetchCourseService.cs</RelativePath>
+                <RelativePath>Views\CourseSelecting\CourseSelectingForm.Designer.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Services\Interfaces\IFetchCourseService.cs</RelativePath>
+                <RelativePath>Views\StartUp\StartUpForm.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\StartUp\StartUpForm.Designer.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1358</ProductionLoc>
+          <ProductionLoc>1095</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

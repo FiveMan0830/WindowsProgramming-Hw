@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using CourseApplication.Model;
 
-namespace CourseApplication.Model.Dto
+namespace CourseApplication.Dto
 {
-    public class CourseInfoDto
+    public class CourseSelectingDto
     {
-        public CourseInfoDto(Course course, bool isCourseSelected = false)
+        public CourseSelectingDto(Course course, bool isCourseSelected = false)
         {
             IsCourseSelected = isCourseSelected;
             Course = course;

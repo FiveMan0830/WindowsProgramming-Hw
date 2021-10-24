@@ -52,28 +52,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\CourseBuilder\CourseBuilder.cs" />
+    <Compile Include="Builder\CourseBuilder.cs" />
     <Compile Include="Builder\Interface\ICourseBuilder.cs" />
-    <Compile Include="SelectCourseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectCourseForm.Designer.cs">
-      <DependentUpon>SelectCourseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Course.cs" />
-    <Compile Include="Model\CourseTime.cs" />
-    <Compile Include="Model\Dto\CourseInfoDto.cs" />
-    <Compile Include="Parser\WebAnalyzer\WebAnalyzer.cs" />
-    <Compile Include="Parser\Interface\IWebAnalyzer.cs" />
+    <Compile Include="Model\CourseApplicationModel.cs" />
+    <Compile Include="Model\CourseParts\CourseTime.cs" />
+    <Compile Include="Dto\CourseSelectingDto.cs" />
+    <Compile Include="Model\Curriculum.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Analyzer\Interface\IWebAnalyzer.cs" />
+    <Compile Include="Analyzer\WebAnalyzer.cs" />
+    <Compile Include="PresentationModels\CourseManagement\CourseManagementPresentationModel.cs" />
+    <Compile Include="PresentationModels\CourseSelecting\CourseSelectingPresentationModel.cs" />
+    <Compile Include="PresentationModels\CourseSelectionResult\CourseSelectionResultPresentationModel.cs" />
+    <Compile Include="PresentationModels\StartUp\StartUpPresentationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectCoursePresentationModel.cs" />
     <Compile Include="Services\FetchCourseService.cs" />
-    <Compile Include="Services\Interfaces\IFetchCourseService.cs" />
-    <EmbeddedResource Include="SelectCourseForm.resx">
-      <DependentUpon>SelectCourseForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <Compile Include="Views\CourseManagement\CourseManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CourseManagement\CourseManagementForm.Designer.cs">
+      <DependentUpon>CourseManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CourseSelecting\CourseSelectingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CourseSelecting\CourseSelectingForm.Designer.cs">
+      <DependentUpon>CourseSelectingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CourseSelecting\CourseSelectingDataGridComponent.cs">
+      <SubType>UserControl</SubType>
+      <Generator>CourseSelectingTabUserControl</Generator>
+    </Compile>
+    <Compile Include="Views\CourseSelecting\CourseSelectingDataGridComponent.Designer.cs">
+      <DependentUpon>CourseSelectingDataGridComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CourseSelectionResult\CourseSelectionResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CourseSelectionResult\CourseSelectionResultForm.Designer.cs">
+      <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StartUp\StartUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StartUp\StartUpForm.Designer.cs">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,7 +110,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\CourseManagement\CourseManagementForm.resx">
+      <DependentUpon>CourseManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CourseSelecting\CourseSelectingForm.resx">
+      <DependentUpon>CourseSelectingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CourseSelecting\CourseSelectingDataGridComponent.resx">
+      <DependentUpon>CourseSelectingDataGridComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CourseSelectionResult\CourseSelectionResultForm.resx">
+      <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StartUp\StartUpForm.resx">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CourseApplication.Model.CourseApplicationModel.datasource" />
     <None Include="Properties\DataSources\CourseApplication.Model.Dto.CourseInfoDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,6 +141,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helper\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

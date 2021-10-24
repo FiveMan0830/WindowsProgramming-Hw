@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using CourseApplication.Model;
 using CourseApplication.Builder.Interface;
-using CourseApplication.Builder.CourseBuilder;
+using CourseApplication.Builder;
 using CourseApplication.Analyzer.Interface;
 
-namespace CourseApplication.Analyzer.WebAnalyzer
+namespace CourseApplication.Analyzer
 {
     public class WebAnalyzer : IWebAnalyzer
     {

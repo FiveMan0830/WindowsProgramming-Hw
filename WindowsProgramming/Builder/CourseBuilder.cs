@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourseApplication.Model.CourseParts;
 using CourseApplication.Model;
 using CourseApplication.Builder.Interface;
 
-namespace CourseApplication.Builder.CourseBuilder
+namespace CourseApplication.Builder
 {
     public class CourseBuilder : ICourseBuilder
     {
@@ -203,25 +204,25 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="nodeTableDatas"></param>
         /// <returns></returns>
-        private CourseTime SetTime(HtmlNodeCollection nodeTableDatas)
+        private Course SetTime(HtmlNodeCollection nodeTableDatas, Course course)
         {
             CourseTime courseTime = new CourseTime();
-            const int SUNDAY_LOCATION = 7;
-            const int MONDAY_LOCATION = 8;
-            const int TUESDAY_LOCATION = 9;
-            const int WEDNESDAY_LOCATION = 10;
-            const int THURSDAY_LOCATION = 11;
-            const int FRIDAY_LOCATION = 12;
-            const int SATURDAY_LOCATION = 13;
+            const int SUNDAY_Index = 7;
+            const int MONDAY_Index = 8;
+            const int TUESDAY_Index = 9;
+            const int WEDNESDAY_Index = 10;
+            const int THURSDAY_Index = 11;
+            const int FRIDAY_Index = 12;
+            const int SATURDAY_Index = 13;
 
-            courseTime.Sunday = nodeTableDatas[SUNDAY_LOCATION].InnerText.Trim();
-            courseTime.Monday = nodeTableDatas[MONDAY_LOCATION].InnerText.Trim();
-            courseTime.Tuesday = nodeTableDatas[TUESDAY_LOCATION].InnerText.Trim();
-            courseTime.Wednesday = nodeTableDatas[WEDNESDAY_LOCATION].InnerText.Trim();
-            courseTime.Thursday = nodeTableDatas[THURSDAY_LOCATION].InnerText.Trim();
-            courseTime.Friday = nodeTableDatas[FRIDAY_LOCATION].InnerText.Trim();
-            courseTime.Saturday = nodeTableDatas[SATURDAY_LOCATION].InnerText.Trim();
-            return courseTime;
+            course.Sunday = nodeTableDatas[SUNDAY_Index].InnerText.Trim();
+            course.Monday = nodeTableDatas[MONDAY_Index].InnerText.Trim();
+            course.Tuesday = nodeTableDatas[TUESDAY_Index].InnerText.Trim();
+            course.Wednesday = nodeTableDatas[WEDNESDAY_Index].InnerText.Trim();
+            course.Thursday = nodeTableDatas[THURSDAY_Index].InnerText.Trim();
+            course.Friday = nodeTableDatas[FRIDAY_Index].InnerText.Trim();
+            course.Saturday = nodeTableDatas[SATURDAY_Index].InnerText.Trim();
+            return course;
         }
 
         /// <summary>
@@ -232,17 +233,17 @@ namespace CourseApplication.Builder.CourseBuilder
         public Course SetByNode(HtmlNodeCollection nodeTableDatas)
         {
             SetRequirements(nodeTableDatas);
-            _course.Teacher = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeacherLocation));
-            _course.CourseTime = SetTime(nodeTableDatas);
-            _course.Classroom = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ClassroomLocation));
-            _course.NumberOfStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfStudentsLocation));
-            _course.NumberOfDropStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfDropStudentsLocation));
-            _course.TeachingAssistant = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeachingAssistantLocation));
-            _course.Language = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.LanguageLocation));
-            _course.Syllabus = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.SyllabusLocation));
-            _course.Note = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NoteLocation));
-            _course.Audit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.AuditLocation));
-            _course.Experiment = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ExperimentLocation));
+            _course.Teacher = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeacherIndex));
+            _course = SetTime(nodeTableDatas, _course);
+            _course.Classroom = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ClassroomIndex));
+            _course.NumberOfStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfStudentsIndex));
+            _course.NumberOfDropStudents = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NumberOfDropStudentsIndex));
+            _course.TeachingAssistant = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.TeachingAssistantIndex));
+            _course.Language = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.LanguageIndex));
+            _course.Syllabus = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.SyllabusIndex));
+            _course.Note = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NoteIndex));
+            _course.Audit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.AuditIndex));
+            _course.Experiment = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.ExperimentIndex));
             return _course;
         }
 
@@ -260,9 +261,9 @@ namespace CourseApplication.Builder.CourseBuilder
         /// </summary>
         /// <param name="nodeTableDatas"></param>
         /// <returns></returns>
-        private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int location)
+        private string GetDataFromTable(HtmlNodeCollection nodeTableDatas, int Index)
         {
-            return nodeTableDatas[location - 1].InnerText.Trim();
+            return nodeTableDatas[Index].InnerText.Trim();
         }
 
         /// <summary>
@@ -271,12 +272,12 @@ namespace CourseApplication.Builder.CourseBuilder
         /// <param name="nodeTableDatas"></param>
         private void SetRequirements(HtmlNodeCollection nodeTableDatas)
         {
-            _course.CourseId = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseIdLocation);
-            _course.CourseName = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseNameLocation);
-            _course.Stage = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.StageLocation));
-            _course.Credit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.CreditLocation));
-            _course.Hour = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.HourLocation));
-            _course.Necessity = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NecessityLocation));
+            _course.CourseId = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseIdIndex);
+            _course.CourseName = GetDataFromTable(nodeTableDatas, (int)CourseProperties.CourseNameIndex);
+            _course.Stage = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.StageIndex));
+            _course.Credit = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.CreditIndex));
+            _course.Hour = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.HourIndex));
+            _course.Necessity = GetDataFromTable(nodeTableDatas, ((int)CourseProperties.NecessityIndex));
         }
     }
 }

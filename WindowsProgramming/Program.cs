@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseApplication.Model;
+using CourseApplication.PresentationModels.StartUp;
+using CourseApplication.PresentationModels.CourseSelecting;
+using CourseApplication.PresentationModels.CourseSelectionResult;
+using CourseApplication.PresentationModels.CourseManagement;
+using CourseApplication.Views.StartUp;
+using CourseApplication.Views.CourseManagement;
+using CourseApplication.Views.CourseSelectionResult;
 
 using HtmlAgilityPack;
-using CourseApplication.Services;
 
 namespace CourseApplication
 {
@@ -20,13 +27,15 @@ namespace CourseApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var resource = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2433";
-            var webClient = new HtmlWeb();
-            var fetchCourseService = new FetchCourseService(webClient, resource);
-            var selectCoursePresentationModel = new SelectCoursePresentationModel(fetchCourseService);
-            var form = new SelectCourseForm(selectCoursePresentationModel);
+            CourseApplicationModel model = new CourseApplicationModel();
 
-            Application.Run(form);
+            StartUpPresentationModel startUpPresentationModel = new StartUpPresentationModel();
+            CourseSelectingPresentationModel courseSelectingPresentationModel = new CourseSelectingPresentationModel(model);
+            CourseManagementPresentationModel courseManagementPresentationModel = new CourseManagementPresentationModel();
+            StartUpForm startUpForm = new StartUpForm(startUpPresentationModel);
+            startUpForm.SetCourseManagementPresentationModel(courseManagementPresentationModel);
+            startUpForm.SetCourseSelectingPresentationModel(courseSelectingPresentationModel);
+            Application.Run(startUpForm);
         }
     }
 }

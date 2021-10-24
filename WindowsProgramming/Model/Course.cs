@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourseApplication.Model.CourseParts;
 
 namespace CourseApplication.Model
 {
@@ -36,7 +37,31 @@ namespace CourseApplication.Model
         { 
             get; set; 
         }
-        public CourseTime CourseTime
+        public string Sunday
+        {
+            get; set;
+        }
+        public string Monday
+        {
+            get; set;
+        }
+        public string Tuesday
+        {
+            get; set;
+        }
+        public string Wednesday
+        {
+            get; set;
+        }
+        public string Thursday
+        {
+            get; set;
+        }
+        public string Friday
+        {
+            get; set;
+        }
+        public string Saturday
         {
             get; set;
         }
@@ -80,29 +105,28 @@ namespace CourseApplication.Model
 
     public enum CourseProperties
     {
-        SelectOptionsLocation,
-        CourseIdLocation,
-        CourseNameLocation,
-        StageLocation,
-        CreditLocation,
-        HourLocation,
-        NecessityLocation,
-        TeacherLocation,
-        SundayLocation,
-        MondayLocation,
-        TuesdayLocation,
-        WednesdayLocation,
-        ThursdayLocation,
-        FridayLocation,
-        SaturdayLocation,
-        ClassroomLocation,
-        NumberOfStudentsLocation,
-        NumberOfDropStudentsLocation,
-        TeachingAssistantLocation,
-        LanguageLocation,
-        SyllabusLocation,
-        NoteLocation,
-        AuditLocation,
-        ExperimentLocation
+        CourseIdIndex,
+        CourseNameIndex,
+        StageIndex,
+        CreditIndex,
+        HourIndex,
+        NecessityIndex,
+        TeacherIndex,
+        SundayIndex,
+        MondayIndex,
+        TuesdayIndex,
+        WednesdayIndex,
+        ThursdayIndex,
+        FridayIndex,
+        SaturdayIndex,
+        ClassroomIndex,
+        NumberOfStudentsIndex,
+        NumberOfDropStudentsIndex,
+        TeachingAssistantIndex,
+        LanguageIndex,
+        SyllabusIndex,
+        NoteIndex,
+        AuditIndex,
+        ExperimentIndex
     }
 }

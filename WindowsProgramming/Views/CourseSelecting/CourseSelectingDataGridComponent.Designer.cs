@@ -1,14 +1,14 @@
 ﻿
-namespace CourseApplication
+namespace CourseApplication.Views.CourseSelecting
 {
-    partial class SelectCourseForm
+    partial class CourseSelectingDataGridComponent
     {
-        /// <summary>
+        /// <summary> 
         /// 設計工具所需的變數。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// 清除任何使用中的資源。
         /// </summary>
         /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
@@ -21,18 +21,17 @@ namespace CourseApplication
             base.Dispose(disposing);
         }
 
-        #region Windows Form 設計工具產生的程式碼
+        #region 元件設計工具產生的程式碼
 
-        /// <summary>
+        /// <summary> 
         /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
         /// 這個方法的內容。
         /// </summary>
         private void InitializeComponent()
         {
-            this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._courseSelectGridView = new System.Windows.Forms.DataGridView();
-            this._courseSubmitButton = new System.Windows.Forms.Button();
-            this._courseCheckResultButton = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this._courseSelectingDataGridView = new System.Windows.Forms.DataGridView();
+            this.courseApplicationModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._courseSelectCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._courseIdTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._classNameTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,37 +56,17 @@ namespace CourseApplication
             this._noteTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._auditTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._experimentTextBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._courseSelectGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._courseSelectingDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseApplicationModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // _tableLayoutPanel1
+            // _courseSelectingDataGridView
             // 
-            this._tableLayoutPanel1.AutoSize = true;
-            this._tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._tableLayoutPanel1.ColumnCount = 3;
-            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this._tableLayoutPanel1.Controls.Add(this._courseSelectGridView, 0, 0);
-            this._tableLayoutPanel1.Controls.Add(this._courseSubmitButton, 1, 1);
-            this._tableLayoutPanel1.Controls.Add(this._courseCheckResultButton, 2, 1);
-            this._tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this._tableLayoutPanel1.Name = "_tableLayoutPanel1";
-            this._tableLayoutPanel1.RowCount = 2;
-            this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this._tableLayoutPanel1.Size = new System.Drawing.Size(1158, 619);
-            this._tableLayoutPanel1.TabIndex = 0;
-            // 
-            // _courseSelectGridView
-            // 
-            this._courseSelectGridView.AllowUserToAddRows = false;
-            this._courseSelectGridView.AllowUserToDeleteRows = false;
-            this._courseSelectGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this._courseSelectGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._courseSelectGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._courseSelectingDataGridView.AllowUserToAddRows = false;
+            this._courseSelectingDataGridView.AllowUserToDeleteRows = false;
+            this._courseSelectingDataGridView.AutoGenerateColumns = false;
+            this._courseSelectingDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this._courseSelectingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._courseSelectCheckBox,
             this._courseIdTextBox,
             this._classNameTextBox,
@@ -112,37 +91,20 @@ namespace CourseApplication
             this._noteTextBox,
             this._auditTextBox,
             this._experimentTextBox});
-            this._tableLayoutPanel1.SetColumnSpan(this._courseSelectGridView, 3);
-            this._courseSelectGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._courseSelectGridView.Location = new System.Drawing.Point(3, 3);
-            this._courseSelectGridView.Name = "_courseSelectGridView";
-            this._courseSelectGridView.RowTemplate.Height = 24;
-            this._courseSelectGridView.Size = new System.Drawing.Size(1152, 520);
-            this._courseSelectGridView.TabIndex = 0;
+            this._courseSelectingDataGridView.DataSource = this.courseApplicationModelBindingSource;
+            this._courseSelectingDataGridView.Location = new System.Drawing.Point(4, 4);
+            this._courseSelectingDataGridView.Name = "_courseSelectingDataGridView";
+            this._courseSelectingDataGridView.RowTemplate.Height = 24;
+            this._courseSelectingDataGridView.Size = new System.Drawing.Size(972, 373);
+            this._courseSelectingDataGridView.TabIndex = 0;
             // 
-            // _courseSubmitButton
+            // courseApplicationModelBindingSource
             // 
-            this._courseSubmitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._courseSubmitButton.Location = new System.Drawing.Point(813, 529);
-            this._courseSubmitButton.Name = "_courseSubmitButton";
-            this._courseSubmitButton.Size = new System.Drawing.Size(167, 87);
-            this._courseSubmitButton.TabIndex = 1;
-            this._courseSubmitButton.Text = "確認送出";
-            this._courseSubmitButton.UseVisualStyleBackColor = true;
-            // 
-            // _courseCheckResultButton
-            // 
-            this._courseCheckResultButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._courseCheckResultButton.Location = new System.Drawing.Point(986, 529);
-            this._courseCheckResultButton.Name = "_courseCheckResultButton";
-            this._courseCheckResultButton.Size = new System.Drawing.Size(169, 87);
-            this._courseCheckResultButton.TabIndex = 2;
-            this._courseCheckResultButton.Text = "查看選課結果";
-            this._courseCheckResultButton.UseVisualStyleBackColor = true;
+            this.courseApplicationModelBindingSource.DataSource = typeof(CourseApplication.Model.CourseApplicationModel);
             // 
             // _courseSelectCheckBox
             // 
-            this._courseSelectCheckBox.DataPropertyName = "IsCourseSelected";
+            this._courseIdTextBox.DataPropertyName = "IsSelected";
             this._courseSelectCheckBox.FalseValue = "false";
             this._courseSelectCheckBox.HeaderText = "選擇";
             this._courseSelectCheckBox.Name = "_courseSelectCheckBox";
@@ -180,7 +142,7 @@ namespace CourseApplication
             // 
             // _hourTextBox
             // 
-            this._hourTextBox.DataPropertyName = "Course.Hour";
+            this._hourTextBox.DataPropertyName = "Hour";
             this._hourTextBox.HeaderText = "時數";
             this._hourTextBox.Name = "_hourTextBox";
             this._hourTextBox.Width = 54;
@@ -201,49 +163,49 @@ namespace CourseApplication
             // 
             // _sundayTextBox
             // 
-            this._sundayTextBox.DataPropertyName = "Course.CourseTime.Sunday";
+            this._sundayTextBox.DataPropertyName = "Course.Sunday";
             this._sundayTextBox.HeaderText = "日";
             this._sundayTextBox.Name = "_sundayTextBox";
             this._sundayTextBox.Width = 42;
             // 
             // _mondayTextBox
             // 
-            this._mondayTextBox.DataPropertyName = "Course.CourseTime.Monday";
+            this._mondayTextBox.DataPropertyName = "Course.Monday";
             this._mondayTextBox.HeaderText = "一";
             this._mondayTextBox.Name = "_mondayTextBox";
             this._mondayTextBox.Width = 42;
             // 
             // _tuesdayTextBox
             // 
-            this._tuesdayTextBox.DataPropertyName = "Course.CourseTime.Tuesday";
+            this._tuesdayTextBox.DataPropertyName = "Course.Tuesday";
             this._tuesdayTextBox.HeaderText = "二";
             this._tuesdayTextBox.Name = "_tuesdayTextBox";
             this._tuesdayTextBox.Width = 42;
             // 
-            // _WednesdayTextBox
+            // _wednesdayTextBox
             // 
-            this._wednesdayTextBox.DataPropertyName = "Course.CourseTime.Wednesday";
+            this._wednesdayTextBox.DataPropertyName = "Course.Wednesday";
             this._wednesdayTextBox.HeaderText = "三";
             this._wednesdayTextBox.Name = "_wednesdayTextBox";
             this._wednesdayTextBox.Width = 42;
             // 
             // _thursdayTextBox
             // 
-            this._thursdayTextBox.DataPropertyName = "Course.CourseTime.Thursday";
+            this._thursdayTextBox.DataPropertyName = "Course.Thursday";
             this._thursdayTextBox.HeaderText = "四";
             this._thursdayTextBox.Name = "_thursdayTextBox";
             this._thursdayTextBox.Width = 42;
             // 
             // _fridayTextBox
             // 
-            this._fridayTextBox.DataPropertyName = "Course.CourseTime.Friday";
+            this._fridayTextBox.DataPropertyName = "Course.Friday";
             this._fridayTextBox.HeaderText = "五";
             this._fridayTextBox.Name = "_fridayTextBox";
             this._fridayTextBox.Width = 42;
             // 
             // _saturdayTextBox
             // 
-            this._saturdayTextBox.DataPropertyName = "Course.CourseTime.Saturday";
+            this._saturdayTextBox.DataPropertyName = "Course.Saturday";
             this._saturdayTextBox.HeaderText = "六";
             this._saturdayTextBox.Name = "_saturdayTextBox";
             this._saturdayTextBox.Width = 42;
@@ -288,51 +250,46 @@ namespace CourseApplication
             this._syllabusTextBox.DataPropertyName = "Course.Syllabus";
             this._syllabusTextBox.HeaderText = "課程大綱與進度表";
             this._syllabusTextBox.Name = "_syllabusTextBox";
-            this._syllabusTextBox.Width = 83;
+            this._syllabusTextBox.Width = 126;
             // 
             // _noteTextBox
             // 
             this._noteTextBox.DataPropertyName = "Course.Note";
             this._noteTextBox.HeaderText = "備註";
             this._noteTextBox.Name = "_noteTextBox";
-            this._noteTextBox.Width = 51;
+            this._noteTextBox.Width = 54;
             // 
             // _auditTextBox
             // 
             this._auditTextBox.DataPropertyName = "Course.Audit";
             this._auditTextBox.HeaderText = "隨班附讀";
             this._auditTextBox.Name = "_auditTextBox";
-            this._auditTextBox.Width = 61;
+            this._auditTextBox.Width = 78;
             // 
             // _experimentTextBox
             // 
-            this._experimentTextBox.DataPropertyName = "Course.Experiment";
+            this._experimentTextBox.DataPropertyName = "Experiment";
             this._experimentTextBox.HeaderText = "實驗實習";
             this._experimentTextBox.Name = "_experimentTextBox";
-            this._experimentTextBox.Width = 61;
+            this._experimentTextBox.Width = 78;
             // 
-            // SelectCourseForm
+            // CourseSelectingDataGridComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1158, 619);
-            this.Controls.Add(this._tableLayoutPanel1);
-            this.Name = "SelectCourseForm";
-            this.Text = "CourseForm";
-            this._tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._courseSelectGridView)).EndInit();
+            this.Controls.Add(this._courseSelectingDataGridView);
+            this.Name = "CourseSelectingDataGridComponent";
+            this.Size = new System.Drawing.Size(979, 382);
+            ((System.ComponentModel.ISupportInitialize)(this._courseSelectingDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseApplicationModelBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView _courseSelectGridView;
-        private System.Windows.Forms.Button _courseSubmitButton;
-        private System.Windows.Forms.Button _courseCheckResultButton;
+        private System.Windows.Forms.DataGridView _courseSelectingDataGridView;
+        private System.Windows.Forms.BindingSource courseApplicationModelBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseSelectCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _courseIdTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn _classNameTextBox;
@@ -359,4 +316,3 @@ namespace CourseApplication
         private System.Windows.Forms.DataGridViewTextBoxColumn _experimentTextBox;
     }
 }
-

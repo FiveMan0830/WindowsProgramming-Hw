@@ -4,37 +4,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model;
-using CourseApplication.Services.Interfaces;
 using CourseApplication.Analyzer.Interface;
-using CourseApplication.Analyzer.WebAnalyzer;
+using CourseApplication.Analyzer;
+using CourseApplication.Model;
 
 namespace CourseApplication.Services
 {
-    public class FetchCourseService : IFetchCourseService
+    class FetchCourseService
     {
         private const string NODE_XPATH = "//body/table";
         private readonly HtmlWeb _webClient;
-        private readonly Uri _resource;
-        public FetchCourseService(HtmlWeb webClient, string resource)
+        public FetchCourseService(HtmlWeb webClient)
         {
             _webClient = webClient;
-            _resource = new Uri(resource);
         }
+
         /// <summary>
         /// 取得Course資料
         /// </summary>
         /// <returns></returns> 
-        public IList<Course> FetchCourse()
+        public List<Course> FetchCourse(string resource)
         {
+
             _webClient.OverrideEncoding = Encoding.Default;
-            HtmlDocument document = _webClient.Load(_resource);
+            HtmlDocument document = _webClient.Load(resource);
 
             HtmlNode nodeTable = document.DocumentNode.SelectSingleNode(NODE_XPATH);
             HtmlNodeCollection nodeTableRow = nodeTable.ChildNodes;
 
             IWebAnalyzer analyzer = new WebAnalyzer();
-            return analyzer.Analyze(RemoveRedundantNodes(nodeTableRow));
+            RemoveRedundantNode(nodeTableRow, 0);
+            string departmentName = nodeTableRow.First().InnerText;
+            departmentName = departmentName.Replace("\n","");
+            RemoveRedundantNode(nodeTableRow, 0);
+            RemoveRedundantNode(nodeTableRow, 0);
+            RemoveRedundantNode(nodeTableRow, GetLastRow(nodeTableRow));
+            List<Course> courses = analyzer.Analyze(nodeTableRow);
+            return courses;
         }
 
         /// <summary>
@@ -42,12 +48,9 @@ namespace CourseApplication.Services
         /// </summary>
         /// <param name="nodeTableRow"></param>
         /// <returns></returns>
-        private HtmlNodeCollection RemoveRedundantNodes(HtmlNodeCollection nodeTableRow)
+        private HtmlNodeCollection RemoveRedundantNode(HtmlNodeCollection nodeTableRow, int index)
         {
-            nodeTableRow.RemoveAt(0);
-            nodeTableRow.RemoveAt(0);
-            nodeTableRow.RemoveAt(0);
-            nodeTableRow.RemoveAt(GetLastRow(nodeTableRow));
+            nodeTableRow.RemoveAt(index);
             return nodeTableRow;
         }
 

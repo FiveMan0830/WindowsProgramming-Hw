@@ -7,60 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CourseApplication.Model.Dto;
+using CourseApplication.PresentationModels.CourseSelecting;
 
-namespace CourseApplication
+namespace CourseApplication.Views.CourseSelecting
 {
-    public partial class SelectCourseForm : Form
+    public partial class CourseSelectingDataGridComponent : UserControl
     {
-        private readonly SelectCoursePresentationModel _selectCoursePresentationModel;
         private const string SEPARATOR = ".";
-        public SelectCourseForm(SelectCoursePresentationModel selectCoursePresentationModel)
+        string _departmentName;
+        CourseSelectingPresentationModel _presentationModel;
+        public CourseSelectingDataGridComponent(CourseSelectingPresentationModel model, string departmentName)
         {
-            _selectCoursePresentationModel = selectCoursePresentationModel;
+            _presentationModel = model;
+            _departmentName = departmentName;
             InitializeComponent();
-            _courseSelectGridView.AutoGenerateColumns = false;
-            _courseSelectGridView.CellFormatting += MapCellDataToPropertyValue;
-            _courseSelectGridView.CellValueChanged += DispatchOnCourseGridCellValueChanged;
-            _courseSelectGridView.CellMouseUp += DispatchOnCourseGridCellMouseUp;
-
-            this.Load += LoadSelectCourseForm;
-
-            _courseSubmitButton.DataBindings.Add("Enabled", _selectCoursePresentationModel, "IsAnyCourseSelected");
-        }
-        /// <summary>
-        /// Load Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoadSelectCourseForm(object sender, EventArgs e)
-        {
-            _selectCoursePresentationModel.LoadCourses();
-            _courseSelectGridView.DataSource = _selectCoursePresentationModel.Courses;
-            // InitializeLayout();
+            _courseSelectingDataGridView.AutoGenerateColumns = false;
+            _courseSelectingDataGridView.CellFormatting += MapCellDataToPropertyValue;
+            _courseSelectingDataGridView.CellValueChanged += DispatchOnCourseGridCellValueChanged;
+            _courseSelectingDataGridView.CellMouseUp += DispatchOnCourseGridCellMouseUp;
         }
 
         /// <summary>
-        /// 初始化界面
+        /// 取Component
         /// </summary>
-        private void InitializeLayout()
+        /// <returns></returns>
+        public DataGridView GetCourseSelectingDataGridView()
         {
-            const int FORM_WIDTH = 800;
-            const int FORM_HEIGHT = 600;
-            this.Size = new Size(FORM_WIDTH, FORM_HEIGHT);
-        }
-
-        /// <summary>
-        /// 數值改動render
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DispatchOnCourseGridCellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (IsCourseCheckBoxColumn(e.ColumnIndex) && e.RowIndex != -1)
-            {
-                _selectCoursePresentationModel.NoticeOnCheckBoxClicked();
-            }
+            return _courseSelectingDataGridView;
         }
 
         /// <summary>
@@ -72,7 +45,7 @@ namespace CourseApplication
         {
             if (IsCourseCheckBoxColumn(e.ColumnIndex) && e.RowIndex != -1)
             {
-                _courseSelectGridView.EndEdit();
+                _courseSelectingDataGridView.EndEdit();
             }
         }
 
@@ -81,9 +54,22 @@ namespace CourseApplication
         /// </summary>
         /// <param name="columnIndex"></param>
         /// <returns></returns>
-        private bool IsCourseCheckBoxColumn(int columnIndex)
+        public bool IsCourseCheckBoxColumn(int columnIndex)
         {
             return columnIndex == _courseSelectCheckBox.Index;
+        }
+
+        /// <summary>
+        /// 數值改動render
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DispatchOnCourseGridCellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (IsCourseCheckBoxColumn(e.ColumnIndex) && e.RowIndex != -1)
+            {
+                _presentationModel.NoticeOnCheckBoxClicked(e.RowIndex, _departmentName);
+            }
         }
 
         /// <summary>
@@ -93,18 +79,18 @@ namespace CourseApplication
         /// <param name="e"></param>
         private void MapCellDataToPropertyValue(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if ((_courseSelectGridView.Rows[e.RowIndex].DataBoundItem != null) &&
-                (_courseSelectGridView.Columns[e.ColumnIndex].DataPropertyName.Contains(SEPARATOR)))
+            if ((_courseSelectingDataGridView.Rows[e.RowIndex].DataBoundItem != null) &&
+                (_courseSelectingDataGridView.Columns[e.ColumnIndex].DataPropertyName.Contains(SEPARATOR)))
             {
                 e.Value = GetPropertyValue(
-                    _courseSelectGridView.Rows[e.RowIndex].DataBoundItem,
-                    _courseSelectGridView.Columns[e.ColumnIndex].DataPropertyName
+                    _courseSelectingDataGridView.Rows[e.RowIndex].DataBoundItem,
+                    _courseSelectingDataGridView.Columns[e.ColumnIndex].DataPropertyName
                 );
             }
         }
 
         /// <summary>
-        /// 取得 Property 對應資料
+        /// 取得 Property 對應資料 TODO Use DTO
         /// </summary>
         /// <param name="property"></param>
         /// <param name="propertyName"></param>
