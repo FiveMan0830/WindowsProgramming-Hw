@@ -91,16 +91,36 @@ namespace CourseApplication.Model
         public string AddCourseChosen(List<Course> courses)
         {
             string errorString = "";
-            foreach (Course course in courses)
+            for (int i = 0 ; i < courses.Count() ; i++)
+            {
+                for (int j = i ; j < courses.Count() ; j++)
+                {
+                    if (!courses[i].Equals(courses[j]))
+                        errorString += CheckIfComplicated(courses[i], courses[j]);
+                }
                 foreach (Course comparisonCourse in _chosenCourses)
                 {
-                    errorString += CheckIfCourseNameComplicated(course, comparisonCourse);
-                    errorString += CheckIfCourseIdComplicated(course, comparisonCourse);
-                    errorString += CheckIfCourseTimeComplicated(course, comparisonCourse);
+                    errorString += CheckIfComplicated(courses[i], comparisonCourse);
                 }
+            }
             if (errorString == "")
                 foreach (Course course in courses)
                     _chosenCourses.Add(course);
+            return errorString;
+        }
+
+        /// <summary>
+        /// 判斷重複與否
+        /// </summary>
+        /// <param name="course"></param>
+        /// <param name="comparisonCourse"></param>
+        /// <returns></returns>
+        private string CheckIfComplicated(Course course, Course comparisonCourse)
+        {
+            string errorString = "";
+            errorString += CheckIfCourseNameComplicated(course, comparisonCourse);
+            errorString += CheckIfCourseIdComplicated(course, comparisonCourse);
+            errorString += CheckIfCourseTimeComplicated(course, comparisonCourse);
             return errorString;
         }
 
@@ -168,7 +188,7 @@ namespace CourseApplication.Model
         private string CheckIfCourseIdComplicated(Course targetCourse, Course comparisonCourse)
         {
             string errorMessage = "";
-            if (GetCourseName(comparisonCourse).Equals(GetCourseName(targetCourse)))
+            if (GetCourseId(comparisonCourse).Equals(GetCourseId(targetCourse)))
                 errorMessage += SAME_COURSE_ID_TEXT + GetCourseId(targetCourse) + SPACE + GetCourseName(targetCourse) + COMMA + GetCourseId(comparisonCourse) + SPACE + GetCourseName(comparisonCourse) + BREAK_LINE;
             return errorMessage;
         }

@@ -20,6 +20,7 @@ namespace CourseApplication.Views.CourseSelectionResult
             InitializeComponent();
             _courseSelectingDataGridView.DataSource = _courseSelectionResultPresentationModel._courseApplicationModel._chosenCourses;
             _courseSelectingDataGridView.CellContentClick += new DataGridViewCellEventHandler(ClickCourseSelectingDataGridViewCellContent);
+
         }
 
         /// <summary>
