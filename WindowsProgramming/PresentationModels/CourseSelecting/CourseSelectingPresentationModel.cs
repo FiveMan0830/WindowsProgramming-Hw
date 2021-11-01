@@ -21,7 +21,6 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         {
             get;
         }
-
         public Dictionary<string ,List<CourseSelectingDto>> _courses
         {
             get;
@@ -30,7 +29,6 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         {
             get; set;
         }
-
         public bool IsAnyCourseSelected
         {
             get
@@ -52,6 +50,7 @@ namespace CourseApplication.PresentationModels.CourseSelecting
             IsNotCourseSelectionResultFormOpened = true;
             _courseApplicationModel = model;
             _courseApplicationModel._chosenCourseChanged += InitializeCourse;
+            _courseApplicationModel._classCourseChanged += InitializeCourse;
             _courses = new Dictionary<string, List<CourseSelectingDto>>();
             InitializeCourse();
         }

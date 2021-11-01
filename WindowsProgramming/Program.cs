@@ -31,7 +31,7 @@ namespace CourseApplication
 
             StartUpPresentationModel startUpPresentationModel = new StartUpPresentationModel();
             CourseSelectingPresentationModel courseSelectingPresentationModel = new CourseSelectingPresentationModel(model);
-            CourseManagementPresentationModel courseManagementPresentationModel = new CourseManagementPresentationModel();
+            CourseManagementPresentationModel courseManagementPresentationModel = new CourseManagementPresentationModel(model);
             StartUpForm startUpForm = new StartUpForm(startUpPresentationModel);
             startUpForm.SetCourseManagementPresentationModel(courseManagementPresentationModel);
             startUpForm.SetCourseSelectingPresentationModel(courseSelectingPresentationModel);

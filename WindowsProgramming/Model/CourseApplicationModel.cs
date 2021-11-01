@@ -13,6 +13,8 @@ namespace CourseApplication.Model
     {
         public event ChosenCourseChangedEventHandler _chosenCourseChanged;
         public delegate void ChosenCourseChangedEventHandler();
+        public event ClassCourseChangedEventHandler _classCourseChanged;
+        public delegate void ClassCourseChangedEventHandler();
         public const string SPACE = " ";
         public const string COMMA = "、";
         public const string BREAK_LINE = "\n";
@@ -33,7 +35,7 @@ namespace CourseApplication.Model
         {
             get;
         }
-        List<Department> _departments;
+        List<Class> _class;
         FetchCourseService _fetchCourseService;
         HtmlWeb _webClient;
 
@@ -41,7 +43,7 @@ namespace CourseApplication.Model
         {
             _curriculum = new Curriculum();
             _chosenCourses = new BindingList<Course>();
-            _departments = new List<Department>();
+            _class = new List<Class>();
             _webClient = new HtmlWeb();
             _fetchCourseService = new FetchCourseService(_webClient);
             FetchCourseDatas(COMPUTER_SCIENCE_THIRD_GRADE_RESOURCE, COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
@@ -56,10 +58,10 @@ namespace CourseApplication.Model
         private void FetchCourseDatas(string resource, string departmentName)
         {
             List<Course> courses = _fetchCourseService.FetchCourse(resource);
-            Department department = new Department();
-            department.DepartmentName = departmentName;
+            Class department = new Class();
+            department.ClassName = departmentName;
             department.Courses = courses;
-            _departments.Add(department);
+            _class.Add(department);
             foreach (var course in courses)
             {
                 _curriculum._courses.Add(course);
@@ -71,11 +73,11 @@ namespace CourseApplication.Model
         /// </summary>
         /// <param name="departmentName"></param>
         /// <returns></returns>
-        public Department GetDepartmentByName(string departmentName)
+        public Class GetDepartmentByName(string departmentName)
         {
-            foreach (Department department in _departments)
+            foreach (Class department in _class)
             {
-                if (department.DepartmentName.Equals(departmentName))
+                if (department.ClassName.Equals(departmentName))
                 {
                     return department;
                 }
@@ -143,6 +145,16 @@ namespace CourseApplication.Model
         {
             if (_chosenCourseChanged != null)
                 _chosenCourseChanged();
+        }
+
+        /// <summary>
+        /// Update/Render Properties when ChosenCourseChanged
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyClassCourseChanged()
+        {
+            if (_classCourseChanged != null)
+                _classCourseChanged();
         }
 
         /// <summary>
@@ -228,6 +240,37 @@ namespace CourseApplication.Model
                     return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// 將Course移動到Class
+        /// </summary>
+        /// <param name="className"></param>
+        /// <param name="course"></param>
+        public void MoveCourseToClass(string className, Course beforeCourse, Course afterCourse)
+        {
+            foreach (Class @class in _class)
+            {
+                if (beforeCourse != null)
+                    @class.RemoveCourse(beforeCourse);
+                if (@class.ClassName.Equals(className))
+                    @class.AddCourse(afterCourse);
+            }
+            NotifyClassCourseChanged();
+        }
+
+        /// <summary>
+        /// 取得當前Course的ClassName
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        public string GetClassByCourse(Course course)
+        {
+            foreach (Class @class in _class)
+                foreach (Course findCourse in @class.Courses)
+                    if (findCourse.Equals(course))
+                        return @class.ClassName;
+            return null;
         }
     }
 }

@@ -54,12 +54,13 @@
   <ItemGroup>
     <Compile Include="Builder\CourseBuilder.cs" />
     <Compile Include="Builder\Interface\ICourseBuilder.cs" />
+    <Compile Include="Dto\CourseTimeDTO.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CourseApplicationModel.cs" />
     <Compile Include="Model\CourseParts\CourseTime.cs" />
     <Compile Include="Dto\CourseSelectingDto.cs" />
     <Compile Include="Model\Curriculum.cs" />
-    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Class.cs" />
     <Compile Include="Analyzer\Interface\IWebAnalyzer.cs" />
     <Compile Include="Analyzer\WebAnalyzer.cs" />
     <Compile Include="PresentationModels\CourseManagement\CourseManagementPresentationModel.cs" />

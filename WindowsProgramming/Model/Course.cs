@@ -15,7 +15,8 @@ namespace CourseApplication.Model
         }
         public string CourseName 
         { 
-            get; set; 
+            get;
+            set; 
         }
         public string Stage 
         { 
@@ -100,6 +101,15 @@ namespace CourseApplication.Model
         public string Experiment 
         { 
             get; set; 
+        }
+
+        /// <summary>
+        /// 淺層複製
+        /// </summary>
+        /// <returns></returns>
+        public Course GetClone()
+        {
+            return (Course)this.MemberwiseClone();
         }
     }
 
