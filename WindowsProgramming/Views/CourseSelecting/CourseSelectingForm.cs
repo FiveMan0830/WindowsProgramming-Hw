@@ -56,8 +56,6 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         private void RenderGridData()
         {
-            List<CourseSelectingDto> coursesComputerScience = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
-            List<CourseSelectingDto> coursesElectricEngineer = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
         }
 
         /// <summary>
@@ -133,6 +131,7 @@ namespace CourseApplication.Views.CourseSelecting
             string tabPageName = "_tabpage";
             TabPage tabPage = new TabPage();
             tabPage.Name = tabPageName + index;
+            tabPage.Text = departmentName;
             _courseSelectingTabControl.TabPages.Add(tabPage);
 
             CourseSelectingDataGridComponent courseSelectingDataGridComponent = new CourseSelectingDataGridComponent(_courseSelectingPresentationModel, departmentName);
