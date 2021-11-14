@@ -16,6 +16,7 @@ namespace CourseApplication.Views.CourseSelecting
         private const string SEPARATOR = ".";
         string _departmentName;
         CourseSelectingPresentationModel _presentationModel;
+
         public CourseSelectingDataGridComponent(CourseSelectingPresentationModel model, string departmentName)
         {
             _presentationModel = model;

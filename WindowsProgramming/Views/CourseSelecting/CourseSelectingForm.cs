@@ -27,9 +27,9 @@ namespace CourseApplication.Views.CourseSelecting
             _courseSelectingPresentationModel = courseSelectingPresentationModel;
             _courseSelectingPresentationModel._courseDtosChanged += RenderGridData;
             _courseSelectionResultPresentationModel = new CourseSelectionResultPresentationModel(_courseSelectingPresentationModel._courseApplicationModel);
-            _courseSelectingDataGridComponent1 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
-            _courseSelectingDataGridComponent2 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
             InitializeComponent();
+            CreateTabPage(1, CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            CreateTabPage(1, CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
             InitializeSelectingSubmitButton();
             InitializeSelectionResultButton();
             RenderGridData();
@@ -58,8 +58,6 @@ namespace CourseApplication.Views.CourseSelecting
         {
             List<CourseSelectingDto> coursesComputerScience = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
             List<CourseSelectingDto> coursesElectricEngineer = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
-            _courseSelectingDataGridComponent1.GetCourseSelectingDataGridView().DataSource = coursesComputerScience;
-            _courseSelectingDataGridComponent2.GetCourseSelectingDataGridView().DataSource = coursesElectricEngineer;
         }
 
         /// <summary>
@@ -123,6 +121,23 @@ namespace CourseApplication.Views.CourseSelecting
             _courseSelectingPresentationModel.IsNotCourseSelectionResultFormOpened = false;
             _courseSelectionResultForm.Show();
             RenderAllComponents();
+        }
+
+        /// <summary>
+        /// 生成tab
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="departmentName"></param>
+        private void CreateTabPage(int index, string departmentName)
+        {
+            string tabPageName = "_tabpage";
+            TabPage tabPage = new TabPage();
+            tabPage.Name = tabPageName + index;
+            _courseSelectingTabControl.TabPages.Add(tabPage);
+
+            CourseSelectingDataGridComponent courseSelectingDataGridComponent = new CourseSelectingDataGridComponent(_courseSelectingPresentationModel, departmentName);
+            courseSelectingDataGridComponent.Parent = tabPage;
+            courseSelectingDataGridComponent.Name = CourseApplicationConstants.COURSE_SELECTING_DATA_GRID_COMPONENT + index;
         }
     }
 }

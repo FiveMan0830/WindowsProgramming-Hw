@@ -33,12 +33,8 @@ namespace CourseApplication.Views.CourseSelecting
             this._courseSelectingSubmitButton = new System.Windows.Forms.Button();
             this._courseSelectionResultButton = new System.Windows.Forms.Button();
             this._courseSelectingTabControl = new System.Windows.Forms.TabControl();
-            this._coursePage1 = new System.Windows.Forms.TabPage();
-            this._coursePage2 = new System.Windows.Forms.TabPage();
             this._courseSelectingTableLayout.SuspendLayout();
             this._courseSelectingTabControl.SuspendLayout();
-            this._coursePage1.SuspendLayout();
-            this._coursePage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _courseSelectingTableLayout
@@ -83,50 +79,12 @@ namespace CourseApplication.Views.CourseSelecting
             // _courseSelectingTabControl
             // 
             this._courseSelectingTableLayout.SetColumnSpan(this._courseSelectingTabControl, 3);
-            this._courseSelectingTabControl.Controls.Add(this._coursePage1);
-            this._courseSelectingTabControl.Controls.Add(this._coursePage2);
             this._courseSelectingTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._courseSelectingTabControl.Location = new System.Drawing.Point(3, 3);
             this._courseSelectingTabControl.Name = "_courseSelectingTabControl";
             this._courseSelectingTabControl.SelectedIndex = 0;
             this._courseSelectingTabControl.Size = new System.Drawing.Size(995, 414);
             this._courseSelectingTabControl.TabIndex = 2;
-            // 
-            // _coursePage1
-            // 
-            this._coursePage1.Controls.Add(this._courseSelectingDataGridComponent1);
-            this._coursePage1.Location = new System.Drawing.Point(4, 22);
-            this._coursePage1.Name = "_coursePage1";
-            this._coursePage1.Padding = new System.Windows.Forms.Padding(3);
-            this._coursePage1.Size = new System.Drawing.Size(987, 388);
-            this._coursePage1.TabIndex = 0;
-            this._coursePage1.Text = "資工三";
-            this._coursePage1.UseVisualStyleBackColor = true;
-            // 
-            // _coursePage2
-            // 
-            this._coursePage2.Controls.Add(this._courseSelectingDataGridComponent2);
-            this._coursePage2.Location = new System.Drawing.Point(4, 22);
-            this._coursePage2.Name = "_coursePage2";
-            this._coursePage2.Padding = new System.Windows.Forms.Padding(3);
-            this._coursePage2.Size = new System.Drawing.Size(987, 388);
-            this._coursePage2.TabIndex = 1;
-            this._coursePage2.Text = "電子三甲";
-            this._coursePage2.UseVisualStyleBackColor = true;
-            // 
-            // _courseSelectingDataGridComponent1
-            // 
-            this._courseSelectingDataGridComponent1.Location = new System.Drawing.Point(3, 3);
-            this._courseSelectingDataGridComponent1.Name = "_courseSelectingDataGridComponent1";
-            this._courseSelectingDataGridComponent1.Size = new System.Drawing.Size(1032, 412);
-            this._courseSelectingDataGridComponent1.TabIndex = 0;
-            // 
-            // _courseSelectingDataGridComponent2
-            // 
-            this._courseSelectingDataGridComponent2.Location = new System.Drawing.Point(3, 3);
-            this._courseSelectingDataGridComponent2.Name = "_courseSelectingDataGridComponent2";
-            this._courseSelectingDataGridComponent2.Size = new System.Drawing.Size(975, 378);
-            this._courseSelectingDataGridComponent2.TabIndex = 1;
             // 
             // CourseSelectingForm
             // 
@@ -138,8 +96,6 @@ namespace CourseApplication.Views.CourseSelecting
             this.Text = "CourseSelectingForm";
             this._courseSelectingTableLayout.ResumeLayout(false);
             this._courseSelectingTabControl.ResumeLayout(false);
-            this._coursePage1.ResumeLayout(false);
-            this._coursePage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -150,9 +106,5 @@ namespace CourseApplication.Views.CourseSelecting
         private System.Windows.Forms.Button _courseSelectingSubmitButton;
         private System.Windows.Forms.Button _courseSelectionResultButton;
         private System.Windows.Forms.TabControl _courseSelectingTabControl;
-        private System.Windows.Forms.TabPage _coursePage1;
-        private System.Windows.Forms.TabPage _coursePage2;
-        private CourseSelectingDataGridComponent _courseSelectingDataGridComponent1;
-        private CourseSelectingDataGridComponent _courseSelectingDataGridComponent2;
     }
 }

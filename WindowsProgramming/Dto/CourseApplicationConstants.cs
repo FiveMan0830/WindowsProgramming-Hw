@@ -67,5 +67,8 @@ namespace CourseApplication.Dto
         public const string GOVERNMENT_SET_REQUIRED_PROFESSIONAL_TEXT = "●";
         public const string SCHOOL_SET_REQUIRED_PROFESSIONAL_TEXT = "▲";
         public const string ELECTIVE_PROFESSIONAL_TEXT = "★";
+
+        // ComponentName
+        public const string COURSE_SELECTING_DATA_GRID_COMPONENT = "courseSelectingDataGridComponent";
     }
 }
