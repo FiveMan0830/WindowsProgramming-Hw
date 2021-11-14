@@ -13,12 +13,12 @@ using CourseApplication.PresentationModels.CourseSelecting;
 using CourseApplication.PresentationModels.CourseSelectionResult;
 using CourseApplication.Views.CourseSelecting;
 using CourseApplication.Views.CourseManagement;
+using CourseApplication.Views.TextConstants;
 
 namespace CourseApplication.Views.StartUp
 {
     public partial class StartUpForm : Form
     {
-        public const string ENABLED_ATTRIBUTE = "Enabled";
         CourseSelectingPresentationModel _courseSelectingPresentationModel;
         CourseSelectingForm _courseSelectingForm;
         CourseManagementPresentationModel _courseManagementPresentationModel;
@@ -57,7 +57,7 @@ namespace CourseApplication.Views.StartUp
         /// </summary>
         private void InitializeCourseSelectButton()
         {
-            _courseSelectButton.DataBindings.Add(ENABLED_ATTRIBUTE, _startUpPresentationModel, "IsNotCourseSelectingFormOpened");
+            _courseSelectButton.DataBindings.Add(ViewTextConstants.ENABLED_ATTRIBUTE, _startUpPresentationModel, "IsNotCourseSelectingFormOpened");
             _courseSelectButton.Click += new EventHandler(CourseSelectButtonClickEvent);
         }
 
@@ -66,7 +66,7 @@ namespace CourseApplication.Views.StartUp
         /// </summary>
         private void InitializeCourseManageButton()
         {
-            _courseManageButton.DataBindings.Add(ENABLED_ATTRIBUTE, _startUpPresentationModel, "IsNotCourseManagementFormOpened");
+            _courseManageButton.DataBindings.Add(ViewTextConstants.ENABLED_ATTRIBUTE, _startUpPresentationModel, "IsNotCourseManagementFormOpened");
             _courseManageButton.Click += new EventHandler(CourseManageButtonClickEvent);
         }
 

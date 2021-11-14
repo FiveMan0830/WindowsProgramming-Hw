@@ -7,23 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CourseApplication.Dto;
+using CourseApplication.Views.TextConstants;
 using CourseApplication.PresentationModels.CourseManagement;
 
 namespace CourseApplication.Views.CourseManagement
 {
     public partial class CourseManagementForm : Form
     {
-        const string TEXT_ATTRIBUTE_NAME = "Text";
-        const string COURSE_ID_TEXT = "CourseId";
-        const string COURSE_NAME_TEXT = "CourseName";
-        const string STAGE_TEXT = "Stage";
-        const string CREDIT_TEXT = "Credit";
-        const string TEACHER_TEXT = "Teacher";
-        const string NECESSITY_TEXT = "Necessity";
-        const string TEACHING_ASSISTANT_TEXT = "TeachingAssistant";
-        const string LANGUAGE_TEXT = "Language";
-        const string NOTE_TEXT = "Note";
-        const string HOUR_TEXT = "Hour";
         CourseManagementPresentationModel _courseManagementPresentationModel;
         public CourseManagementForm(CourseManagementPresentationModel courseManagementPresentationModel)
         {
@@ -87,8 +78,8 @@ namespace CourseApplication.Views.CourseManagement
         private void ClickAddNewCourseButtonEvent(object sender, EventArgs e)
         {
             _courseManagementPresentationModel.HandleAddNewCourse();
-            _courseManageGroupBox.Text = "新增課程";
-            _courseManageSaveButton.Text = "新增";
+            _courseManageGroupBox.Text = ViewTextConstants.ADD_COURSE_TEXT;
+            _courseManageSaveButton.Text = ViewTextConstants.ADD_BUTTON_TEXT;
             ClearDataBinding();
             InitializeDataBinding();
             EnableInputs();
@@ -115,8 +106,8 @@ namespace CourseApplication.Views.CourseManagement
         {
             int index = _allCourseListBox.SelectedIndex;
             _courseManagementPresentationModel.HandleChangeSelectedIndex(index);
-            _courseManageGroupBox.Text = "編輯課程";
-            _courseManageSaveButton.Text = "儲存";
+            _courseManageGroupBox.Text = ViewTextConstants.UPDATE_COURSE_TEXT;
+            _courseManageSaveButton.Text = ViewTextConstants.UPDATE_BUTTON_TEXT;
             ClearDataBinding();
             InitializeDataBinding();
             EnableInputs();
@@ -145,16 +136,16 @@ namespace CourseApplication.Views.CourseManagement
         /// </summary>
         private void InitializeDataBinding()
         {
-            _courseIdTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, COURSE_ID_TEXT);
-            _courseNameTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, COURSE_NAME_TEXT);
-            _stageTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, STAGE_TEXT);
-            _creditTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CREDIT_TEXT);
-            _teacherTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, TEACHER_TEXT);
-            _necessityComboBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, NECESSITY_TEXT);
-            _teachingAssistantTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, TEACHING_ASSISTANT_TEXT);
-            _languageTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, LANGUAGE_TEXT);
-            _noteTextBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, NOTE_TEXT);
-            _hourComboBox.DataBindings.Add(TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, HOUR_TEXT);
+            _courseIdTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.COURSE_ID_TEXT);
+            _courseNameTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.COURSE_NAME_TEXT);
+            _stageTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.STAGE_TEXT);
+            _creditTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.CREDIT_TEXT);
+            _teacherTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.TEACHER_TEXT);
+            _necessityComboBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.NECESSITY_TEXT);
+            _teachingAssistantTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.TEACHING_ASSISTANT_TEXT);
+            _languageTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.LANGUAGE_TEXT);
+            _noteTextBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.NOTE_TEXT);
+            _hourComboBox.DataBindings.Add(CourseApplicationConstants.TEXT_ATTRIBUTE_NAME, _courseManagementPresentationModel._currentCourse, CourseApplicationConstants.HOUR_TEXT);
             _courseManageSaveButton.DataBindings.Add("Enabled", _courseManagementPresentationModel, "IsSaveEnabled");
             _classComboBox.Text = _courseManagementPresentationModel.GetClassName;
         }
@@ -185,7 +176,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedCourseIdTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(COURSE_ID_TEXT, _courseIdTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.COURSE_ID_TEXT, _courseIdTextBox.Text);
         }
 
         /// <summary>
@@ -195,7 +186,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedCourseNameTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(COURSE_NAME_TEXT, _courseNameTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.COURSE_NAME_TEXT, _courseNameTextBox.Text);
         }
 
         /// <summary>
@@ -205,7 +196,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedStageTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(STAGE_TEXT, _stageTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.STAGE_TEXT, _stageTextBox.Text);
         }
 
         /// <summary>
@@ -215,7 +206,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedCreditTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(CREDIT_TEXT, _creditTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.CREDIT_TEXT, _creditTextBox.Text);
         }
 
         /// <summary>
@@ -225,7 +216,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedTeacherTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(TEACHER_TEXT, _teacherTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.TEACHER_TEXT, _teacherTextBox.Text);
         }
 
         /// <summary>
@@ -235,7 +226,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedTeachingAssistantTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(TEACHING_ASSISTANT_TEXT, _teachingAssistantTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.TEACHING_ASSISTANT_TEXT, _teachingAssistantTextBox.Text);
         }
 
         /// <summary>
@@ -245,7 +236,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedLanguageTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(LANGUAGE_TEXT, _languageTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.LANGUAGE_TEXT, _languageTextBox.Text);
         }
 
         /// <summary>
@@ -255,7 +246,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedNoteTextBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(NOTE_TEXT, _noteTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.NOTE_TEXT, _noteTextBox.Text);
         }
 
         /// <summary>
@@ -285,7 +276,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedNecessityComboBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(NECESSITY_TEXT, _noteTextBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.NECESSITY_TEXT, _necessityComboBox.Text);
         }
 
         /// <summary>
@@ -295,7 +286,7 @@ namespace CourseApplication.Views.CourseManagement
         /// <param name="e"></param>
         private void ChangedHourComboBoxText(object sender, EventArgs e)
         {
-            _courseManagementPresentationModel.HandleTextChanged(HOUR_TEXT, _hourComboBox.Text);
+            _courseManagementPresentationModel.HandleTextChanged(CourseApplicationConstants.HOUR_TEXT, _hourComboBox.Text);
         }
 
         /// <summary>

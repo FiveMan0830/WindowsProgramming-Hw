@@ -15,20 +15,7 @@ namespace CourseApplication.PresentationModels.CourseManagement
         public event PropertyChangedEventHandler PropertyChanged;
         public event TimeGridChangedEventHandler _timeGridChanged;
         public delegate void TimeGridChangedEventHandler();
-        const string ADD_COURSE_TEXT = "新增課程";
-        const string EDIT_COURSE_TEXT = "編輯課程";
-        const string COMPUTER_SCIENCE_TEXT = "資工三";
-        const string SUNDAY_TEXT = "Sunday";
-        const string MONDAY_TEXT = "Monday";
-        const string TUESDAY_TEXT = "Tuesday";
-        const string WEDNESDAY_TEXT = "Wednesday";
-        const string THURSDAY_TEXT = "Thursday";
-        const string FRIDAY_TEXT = "Friday";
-        const string SATURDAY_TEXT = "Saturday";
-        const string SPACE_TEXT = " ";
-        const string EMPTY_TEXT = "";
-        const char SPACE_CHAR = ' ';
-        const int CLASS_PERIODS = 9;
+        string[] _dayOfWeekArray = new string[] { CourseApplicationConstants.SUNDAY_TEXT, CourseApplicationConstants.MONDAY_TEXT, CourseApplicationConstants.TUESDAY_TEXT, CourseApplicationConstants.WEDNESDAY_TEXT, CourseApplicationConstants.THURSDAY_TEXT, CourseApplicationConstants.FRIDAY_TEXT, CourseApplicationConstants.SATURDAY_TEXT };
         bool _isAddCourseState;
         int _currentIndex;
         string _class;
@@ -63,9 +50,9 @@ namespace CourseApplication.PresentationModels.CourseManagement
             get
             {
                 if (_isAddCourseState)
-                    return ADD_COURSE_TEXT;
+                    return CourseApplicationConstants.ADD_COURSE_TEXT;
                 else
-                    return EDIT_COURSE_TEXT;
+                    return CourseApplicationConstants.EDIT_COURSE_TEXT;
             }
         }
 
@@ -100,13 +87,13 @@ namespace CourseApplication.PresentationModels.CourseManagement
         {
             get
             {
-                if (_currentCourse.CourseId != EMPTY_TEXT
-                    && _currentCourse.CourseName != EMPTY_TEXT
-                    && _currentCourse.Credit != EMPTY_TEXT
-                    && _currentCourse.Stage != EMPTY_TEXT
-                    && _currentCourse.Teacher != EMPTY_TEXT
-                    && _currentCourse.Hour != EMPTY_TEXT
-                    && _currentCourse.Necessity != EMPTY_TEXT)
+                if (_currentCourse.CourseId != CourseApplicationConstants.EMPTY
+                    && _currentCourse.CourseName != CourseApplicationConstants.EMPTY
+                    && _currentCourse.Credit != CourseApplicationConstants.EMPTY
+                    && _currentCourse.Stage != CourseApplicationConstants.EMPTY
+                    && _currentCourse.Teacher != CourseApplicationConstants.EMPTY
+                    && _currentCourse.Hour != CourseApplicationConstants.EMPTY
+                    && _currentCourse.Necessity != CourseApplicationConstants.EMPTY)
                     return true;
                 return false;
             }
@@ -142,7 +129,7 @@ namespace CourseApplication.PresentationModels.CourseManagement
         {
             _courseApplicationModel = courseApplicationModel;
             _isAddCourseState = false;
-            _class = COMPUTER_SCIENCE_TEXT;
+            _class = CourseApplicationConstants.COMPUTER_SCIENCE_TEXT;
             InitializeNameList();
             InitializeTimeGrid();
         }
@@ -208,7 +195,7 @@ namespace CourseApplication.PresentationModels.CourseManagement
             if (_courseTimeGrid != null)
                 _courseTimeGrid.Clear();
             _courseTimeGrid = new List<CourseTimeDTO>();
-            for (int i = 1; i < CLASS_PERIODS; i++)
+            for (int i = 1; i < CourseApplicationConstants.CLASS_PERIODS; i++)
                 _courseTimeGrid.Add(new CourseTimeDTO(i));
         }
 
@@ -217,13 +204,31 @@ namespace CourseApplication.PresentationModels.CourseManagement
         /// </summary>
         public void GetCourseTimes()
         {
-            GetCourseTime(SUNDAY_TEXT);
-            GetCourseTime(MONDAY_TEXT);
-            GetCourseTime(TUESDAY_TEXT);
-            GetCourseTime(WEDNESDAY_TEXT);
-            GetCourseTime(THURSDAY_TEXT);
-            GetCourseTime(FRIDAY_TEXT);
-            GetCourseTime(SATURDAY_TEXT);
+            InitializeTimeGrid();
+            GetCourseTime(CourseApplicationConstants.SUNDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.MONDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.TUESDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.WEDNESDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.THURSDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.FRIDAY_TEXT);
+            GetCourseTime(CourseApplicationConstants.SATURDAY_TEXT);
+        }
+
+        /// <summary>
+        /// 初始化時間
+        /// </summary>
+        private void GetCourseTime(string dayOfTheWeek)
+        {
+            PropertyInfo property = _toBeChangedCourse.GetType().GetProperty(dayOfTheWeek);
+            string[] classTime = ((string)property.GetValue(_toBeChangedCourse)).Split(CourseApplicationConstants.SPACE_CHAR);
+            for (int i = 0; i < classTime.Length; i++)
+                for (int j = 0; j < CourseApplicationConstants.CLASS_PERIODS - 1; j++)
+                {
+                    PropertyInfo propertyInfo = _courseTimeGrid[j].GetType().GetProperty(dayOfTheWeek);
+                    if (classTime[i].Equals(Convert.ToString(j + 1)))
+                        propertyInfo.SetValue(_courseTimeGrid[j], true);
+                }
+            NotifyOnTimeGridChanged();
         }
 
         /// <summary>
@@ -266,8 +271,10 @@ namespace CourseApplication.PresentationModels.CourseManagement
         /// </summary>
         private void SaveNewCourse()
         {
+            SaveTimeInCourse(_currentCourse);
             _courseApplicationModel._curriculum._courses.Add(_currentCourse);
             _courseApplicationModel.MoveCourseToClass(_class, _toBeChangedCourse, _currentCourse);
+            _toBeChangedCourse = _currentCourse;
         }
 
         /// <summary>
@@ -276,27 +283,10 @@ namespace CourseApplication.PresentationModels.CourseManagement
         /// <param name="index"></param>
         private void UpdateCourse(int index)
         {
+            SaveTimeInCourse(_currentCourse);
             _courseApplicationModel._curriculum._courses[index] = _currentCourse;
             _courseApplicationModel.MoveCourseToClass(_class, _toBeChangedCourse, _currentCourse);
-        }
-
-        /// <summary>
-        /// 初始化時間
-        /// </summary>
-        private void GetCourseTime(string dayOfTheWeek)
-        {
-            PropertyInfo property = _toBeChangedCourse.GetType().GetProperty(dayOfTheWeek);
-            string[] classTime = ((string)property.GetValue(_toBeChangedCourse)).Split(SPACE_CHAR);
-            for (int i = 0; i < classTime.Length; i++)
-                for (int j = 0; j < CLASS_PERIODS - 1; j++)
-                {
-                    PropertyInfo propertyInfo = _courseTimeGrid[j].GetType().GetProperty(dayOfTheWeek);
-                    if (classTime[i].Equals(Convert.ToString(j + 1)))
-                        propertyInfo.SetValue(_courseTimeGrid[j], true);
-                    else
-                        propertyInfo.SetValue(_courseTimeGrid[j], false);
-                }
-            NotifyOnTimeGridChanged();
+            _toBeChangedCourse = _currentCourse;
         }
 
         /// <summary>
@@ -307,6 +297,45 @@ namespace CourseApplication.PresentationModels.CourseManagement
             if (_timeGridChanged != null)
                 _timeGridChanged();
             Notify(nameof(IsSaveEnabled));
+        }
+
+        /// <summary>
+        /// 儲存時間
+        /// </summary>
+        /// <returns></returns>
+        private string SaveTimeAsString(string dayOfTheWeek)
+        {
+            string timeString = CourseApplicationConstants.EMPTY;
+            PropertyInfo property = null;
+            for (int i = 0; i < _courseTimeGrid.Count; i++)
+            {
+                property = _courseTimeGrid[i].GetType().GetProperty(dayOfTheWeek);
+                if ((bool)property.GetValue(_courseTimeGrid[i]))
+                {
+                    if (timeString != CourseApplicationConstants.EMPTY)
+                        timeString += CourseApplicationConstants.SPACE;
+                    timeString += i + 1;
+                }
+            }
+
+            return timeString;
+        }
+
+        /// <summary>
+        /// 將TimeGrid轉成String存入Course
+        /// </summary>
+        /// <param name="courseTimes"></param>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        private Course SaveTimeInCourse(Course course)
+        {
+            PropertyInfo property = null;
+            foreach (string dayOfWeek in _dayOfWeekArray)
+            {
+                property = course.GetType().GetProperty(dayOfWeek);
+                property.SetValue(course, SaveTimeAsString(dayOfWeek));
+            }
+            return course;
         }
     }
 }

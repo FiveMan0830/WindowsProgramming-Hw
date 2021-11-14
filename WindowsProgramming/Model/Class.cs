@@ -18,6 +18,20 @@ namespace CourseApplication.Model
             get; set;
         }
 
+        public Class()
+        {
+            Courses = new List<Course>();
+        }
+        public Class(string className)
+        {
+            ClassName = className;
+            Courses = new List<Course>();
+        }
+        public Class(string className, List<Course> courses)
+        {
+            ClassName = className;
+            Courses = courses;
+        }
         /// <summary>
         /// 新增課程
         /// </summary>

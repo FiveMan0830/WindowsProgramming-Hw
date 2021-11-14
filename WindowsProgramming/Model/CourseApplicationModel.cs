@@ -6,25 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using CourseApplication.Services;
+using CourseApplication.Dto;
 
 namespace CourseApplication.Model
 {
-    public class CourseApplicationModel
+    public partial class CourseApplicationModel
     {
         public event ChosenCourseChangedEventHandler _chosenCourseChanged;
         public delegate void ChosenCourseChangedEventHandler();
         public event ClassCourseChangedEventHandler _classCourseChanged;
         public delegate void ClassCourseChangedEventHandler();
-        public const string SPACE = " ";
-        public const string COMMA = "、";
-        public const string BREAK_LINE = "\n";
-        public const string COMPUTER_SCIENCE_THIRD_GRADE_RESOURCE = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2433";
-        public const string ELECTRON_ENGINEERING_THIRD_GRADE_RESOURCE = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2423";
-        public const string COMPUTER_SCIENCE_THIRD_GRADE_TEXT = "資工三";
-        public const string ELECTRON_ENGINEERING_THIRD_GRADE_TEXT = "電子三甲";
-        public const string SAME_COURSE_NAME_TEXT = "課程名稱相同 : ";
-        public const string SAME_COURSE_ID_TEXT = "課程課號相同 : ";
-        public const string SAME_COURSE_TIME_TEXT = "課程衝堂 : ";
 
         public Curriculum _curriculum
         {
@@ -46,8 +37,8 @@ namespace CourseApplication.Model
             _class = new List<Class>();
             _webClient = new HtmlWeb();
             _fetchCourseService = new FetchCourseService(_webClient);
-            FetchCourseDatas(COMPUTER_SCIENCE_THIRD_GRADE_RESOURCE, COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
-            FetchCourseDatas(ELECTRON_ENGINEERING_THIRD_GRADE_RESOURCE, ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
+            FetchCourseDatas(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_RESOURCE, CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            FetchCourseDatas(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_RESOURCE, CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
         }
 
         /// <summary>
@@ -90,7 +81,7 @@ namespace CourseApplication.Model
         /// </summary>
         /// <param name="course"></param>
         /// <returns></returns>
-        public string AddCourseChosen(List<Course> courses)
+        public string AddCourseToChosen(List<Course> courses)
         {
             string errorString = "";
             for (int i = 0 ; i < courses.Count() ; i++)
@@ -130,7 +121,7 @@ namespace CourseApplication.Model
         /// 退選課程
         /// </summary>
         /// <param name="index"></param>
-        public void DropCourseChosen(int index)
+        public void DropCourseFromChosen(int index)
         {
             if (_chosenCourses.Count > index)
                 _chosenCourses.RemoveAt(index);
@@ -167,7 +158,7 @@ namespace CourseApplication.Model
         {
             string errorMessage = "";
             if (GetCourseName(comparisonCourse).Equals(GetCourseName(targetCourse)))
-                errorMessage += SAME_COURSE_NAME_TEXT + GetCourseId(targetCourse) + SPACE + GetCourseName(targetCourse) + COMMA + GetCourseId(comparisonCourse) + SPACE + GetCourseName(comparisonCourse) + BREAK_LINE;
+                errorMessage += CourseApplicationConstants.SAME_COURSE_NAME_TEXT + GetCourseId(targetCourse) + CourseApplicationConstants.SPACE + GetCourseName(targetCourse) + CourseApplicationConstants.COMMA + GetCourseId(comparisonCourse) + CourseApplicationConstants.SPACE + GetCourseName(comparisonCourse) + CourseApplicationConstants.BREAK_LINE;
             return errorMessage;
         }
 
@@ -201,7 +192,7 @@ namespace CourseApplication.Model
         {
             string errorMessage = "";
             if (GetCourseId(comparisonCourse).Equals(GetCourseId(targetCourse)))
-                errorMessage += SAME_COURSE_ID_TEXT + GetCourseId(targetCourse) + SPACE + GetCourseName(targetCourse) + COMMA + GetCourseId(comparisonCourse) + SPACE + GetCourseName(comparisonCourse) + BREAK_LINE;
+                errorMessage += CourseApplicationConstants.SAME_COURSE_ID_TEXT + GetCourseId(targetCourse) + CourseApplicationConstants.SPACE + GetCourseName(targetCourse) + CourseApplicationConstants.COMMA + GetCourseId(comparisonCourse) + CourseApplicationConstants.SPACE + GetCourseName(comparisonCourse) + CourseApplicationConstants.BREAK_LINE;
             return errorMessage;
         }
 
@@ -221,7 +212,7 @@ namespace CourseApplication.Model
                 || CheckTimeDuplicate(targetCourse.Thursday, comparisonCourse.Thursday)
                 || CheckTimeDuplicate(targetCourse.Friday, comparisonCourse.Friday)
                 || CheckTimeDuplicate(targetCourse.Saturday, comparisonCourse.Saturday))
-                errorMessage += SAME_COURSE_TIME_TEXT + GetCourseId(targetCourse) + SPACE + GetCourseName(targetCourse) + COMMA + GetCourseId(comparisonCourse) + SPACE + GetCourseName(comparisonCourse) + BREAK_LINE;
+                errorMessage += CourseApplicationConstants.SAME_COURSE_TIME_TEXT + GetCourseId(targetCourse) + CourseApplicationConstants.SPACE + GetCourseName(targetCourse) + CourseApplicationConstants.COMMA + GetCourseId(comparisonCourse) + CourseApplicationConstants.SPACE + GetCourseName(comparisonCourse) + CourseApplicationConstants.BREAK_LINE;
             return errorMessage;
         }
 

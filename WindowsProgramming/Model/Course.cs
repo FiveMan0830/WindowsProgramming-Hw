@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.CourseParts;
+using CourseApplication.Model;
 
 namespace CourseApplication.Model
 {
@@ -101,6 +101,12 @@ namespace CourseApplication.Model
         public string Experiment 
         { 
             get; set; 
+        }
+        public Course()
+        {
+            CourseId = CourseName = Stage = Credit = Hour = Necessity = Teacher = "";
+            Sunday = Monday = Tuesday = Wednesday = Thursday = Friday = Saturday = "";
+            Classroom = NumberOfStudents = NumberOfDropStudents = TeachingAssistant = Language = Syllabus = Note = Audit = Experiment = "";
         }
 
         /// <summary>

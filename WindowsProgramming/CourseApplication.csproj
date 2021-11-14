@@ -54,10 +54,10 @@
   <ItemGroup>
     <Compile Include="Builder\CourseBuilder.cs" />
     <Compile Include="Builder\Interface\ICourseBuilder.cs" />
+    <Compile Include="Dto\CourseApplicationConstants.cs" />
     <Compile Include="Dto\CourseTimeDTO.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CourseApplicationModel.cs" />
-    <Compile Include="Model\CourseParts\CourseTime.cs" />
     <Compile Include="Dto\CourseSelectingDto.cs" />
     <Compile Include="Model\Curriculum.cs" />
     <Compile Include="Model\Class.cs" />
@@ -107,6 +107,7 @@
     <Compile Include="Views\StartUp\StartUpForm.Designer.cs">
       <DependentUpon>StartUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TextConstants\ViewTextConstants.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

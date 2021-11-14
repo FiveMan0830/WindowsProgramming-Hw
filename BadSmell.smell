@@ -189,15 +189,15 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>257 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.AddCourse(CourseApplication.Model.Course) 以及 CourseApplication.Model.Class.ClassName</HashCode>
+              <HashCode>248 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.AddCourse(CourseApplication.Model.Course) 以及 CourseApplication.Model.Class.ClassName</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseApplication</Project>
               <File>C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\Model\CourseApplicationModel.cs</File>
-              <Line>257</Line>
-              <StartLine>256</StartLine>
+              <Line>248</Line>
+              <StartLine>247</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>257</EndLine>
+              <EndLine>248</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.AddCourse(CourseApplication.Model.Course) 以及 CourseApplication.Model.Class.ClassName</Comment>
               <Auto>false</Auto>
@@ -205,15 +205,15 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>272 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.ClassName 以及 CourseApplication.Model.Class.Courses</HashCode>
+              <HashCode>263 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.ClassName 以及 CourseApplication.Model.Class.Courses</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseApplication</Project>
               <File>C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\Model\CourseApplicationModel.cs</File>
-              <Line>272</Line>
-              <StartLine>271</StartLine>
+              <Line>263</Line>
+              <StartLine>262</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>272</EndLine>
+              <EndLine>263</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.ClassName 以及 CourseApplication.Model.Class.Courses</Comment>
               <Auto>false</Auto>
@@ -221,26 +221,22 @@
             <Smell>
               <Id>3</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>189 目前物件 CourseApplication.PresentationModels.CourseManagement.CourseManagementPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.CourseApplicationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.CourseApplicationModel._curriculum 以及 CourseApplication.Model.CourseApplicationModel.GetClassByCourse(CourseApplication.Model.Course)</HashCode>
+              <HashCode>176 目前物件 CourseApplication.PresentationModels.CourseManagement.CourseManagementPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.CourseApplicationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.CourseApplicationModel._curriculum 以及 CourseApplication.Model.CourseApplicationModel.GetClassByCourse(CourseApplication.Model.Course)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseApplication</Project>
               <File>C:\Users\88696\source\repos\WindowsProgramming\WindowsProgramming\PresentationModels\CourseManagement\CourseManagementPresentationModel.cs</File>
-              <Line>189</Line>
-              <StartLine>188</StartLine>
+              <Line>176</Line>
+              <StartLine>175</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>189</EndLine>
+              <EndLine>176</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseApplication.PresentationModels.CourseManagement.CourseManagementPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.CourseApplicationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.CourseApplicationModel._curriculum 以及 CourseApplication.Model.CourseApplicationModel.GetClassByCourse(CourseApplication.Model.Course)</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
-            <string>257 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.AddCourse(CourseApplication.Model.Course) 以及 CourseApplication.Model.Class.ClassName</string>
-            <string>272 目前物件 CourseApplication.Model.CourseApplicationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.Class，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.Class.ClassName 以及 CourseApplication.Model.Class.Courses</string>
-            <string>189 目前物件 CourseApplication.PresentationModels.CourseManagement.CourseManagementPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseApplication.Model.CourseApplicationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseApplication.Model.CourseApplicationModel._curriculum 以及 CourseApplication.Model.CourseApplicationModel.GetClassByCourse(CourseApplication.Model.Course)</string>
-          </HashCodeRequestIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
@@ -260,6 +256,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Builder\Interface\ICourseBuilder.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Dto\CourseApplicationConstants.cs</RelativePath>
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -403,10 +404,40 @@
                 <ProjectName>CourseApplication</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Views\TextConstants\ViewTextConstants.cs</RelativePath>
+                <ProjectName>CourseApplication</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\ClassTests.cs</RelativePath>
+                <ProjectName>CourseApplicationTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\CourseApplicationModelTests.cs</RelativePath>
+                <ProjectName>CourseApplicationTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\CourseTests.cs</RelativePath>
+                <ProjectName>CourseApplicationTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseManagement\CourseManagementPresentationModelTests.cs</RelativePath>
+                <ProjectName>CourseApplicationTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>CourseApplicationTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>4183</ProductionLoc>
-          <TestLoc>0</TestLoc>
+          <ProductionLoc>4324</ProductionLoc>
+          <TestLoc>501</TestLoc>
         </CodeReview>
       </Data>
     </div>

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CourseApplication.Model.CourseParts;
 using CourseApplication.Model;
 using CourseApplication.Builder.Interface;
+using CourseApplication.Dto;
 
 namespace CourseApplication.Builder
 {
@@ -206,22 +206,13 @@ namespace CourseApplication.Builder
         /// <returns></returns>
         private Course SetTime(HtmlNodeCollection nodeTableDatas, Course course)
         {
-            CourseTime courseTime = new CourseTime();
-            const int SUNDAY_INDEX = 7;
-            const int MONDAY_INDEX = 8;
-            const int TUESDAY_INDEX = 9;
-            const int WEDNESDAY_INDEX = 10;
-            const int THURSDAY_INDEX = 11;
-            const int FRIDAY_INDEX = 12;
-            const int SATURDAY_INDEX = 13;
-
-            course.Sunday = nodeTableDatas[SUNDAY_INDEX].InnerText.Trim();
-            course.Monday = nodeTableDatas[MONDAY_INDEX].InnerText.Trim();
-            course.Tuesday = nodeTableDatas[TUESDAY_INDEX].InnerText.Trim();
-            course.Wednesday = nodeTableDatas[WEDNESDAY_INDEX].InnerText.Trim();
-            course.Thursday = nodeTableDatas[THURSDAY_INDEX].InnerText.Trim();
-            course.Friday = nodeTableDatas[FRIDAY_INDEX].InnerText.Trim();
-            course.Saturday = nodeTableDatas[SATURDAY_INDEX].InnerText.Trim();
+            course.Sunday = nodeTableDatas[CourseApplicationConstants.SUNDAY_INDEX].InnerText.Trim();
+            course.Monday = nodeTableDatas[CourseApplicationConstants.MONDAY_INDEX].InnerText.Trim();
+            course.Tuesday = nodeTableDatas[CourseApplicationConstants.TUESDAY_INDEX].InnerText.Trim();
+            course.Wednesday = nodeTableDatas[CourseApplicationConstants.WEDNESDAY_INDEX].InnerText.Trim();
+            course.Thursday = nodeTableDatas[CourseApplicationConstants.THURSDAY_INDEX].InnerText.Trim();
+            course.Friday = nodeTableDatas[CourseApplicationConstants.FRIDAY_INDEX].InnerText.Trim();
+            course.Saturday = nodeTableDatas[CourseApplicationConstants.SATURDAY_INDEX].InnerText.Trim();
             return course;
         }
 

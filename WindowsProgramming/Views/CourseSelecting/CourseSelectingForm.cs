@@ -12,14 +12,12 @@ using CourseApplication.Dto;
 using CourseApplication.PresentationModels.CourseSelecting;
 using CourseApplication.PresentationModels.CourseSelectionResult;
 using CourseApplication.Views.CourseSelectionResult;
+using CourseApplication.Views.TextConstants;
 
 namespace CourseApplication.Views.CourseSelecting
 {
     public partial class CourseSelectingForm : Form
     {
-        public const string ENABLED_ATTRIBUTE = "Enabled";
-        public const string COMPUTER_SCIENCE_THIRD_GRADE_TEXT = "資工三";
-        public const string ELECTRON_ENGINEERING_THIRD_GRADE_TEXT = "電子三甲";
         CourseSelectingPresentationModel _courseSelectingPresentationModel;
         CourseSelectionResultPresentationModel _courseSelectionResultPresentationModel;
         CourseSelectionResultForm _courseSelectionResultForm;
@@ -29,8 +27,8 @@ namespace CourseApplication.Views.CourseSelecting
             _courseSelectingPresentationModel = courseSelectingPresentationModel;
             _courseSelectingPresentationModel._courseDtosChanged += RenderGridData;
             _courseSelectionResultPresentationModel = new CourseSelectionResultPresentationModel(_courseSelectingPresentationModel._courseApplicationModel);
-            _courseSelectingDataGridComponent1 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
-            _courseSelectingDataGridComponent2 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
+            _courseSelectingDataGridComponent1 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            _courseSelectingDataGridComponent2 = new CourseSelectingDataGridComponent(courseSelectingPresentationModel, CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
             InitializeComponent();
             InitializeSelectingSubmitButton();
             InitializeSelectionResultButton();
@@ -42,7 +40,7 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         private void InitializeSelectingSubmitButton()
         {
-            _courseSelectingSubmitButton.DataBindings.Add(ENABLED_ATTRIBUTE, _courseSelectingPresentationModel, "IsAnyCourseSelected");
+            _courseSelectingSubmitButton.DataBindings.Add(ViewTextConstants.ENABLED_ATTRIBUTE, _courseSelectingPresentationModel, "IsAnyCourseSelected");
         }
 
         /// <summary>
@@ -50,7 +48,7 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         private void InitializeSelectionResultButton()
         {
-            _courseSelectionResultButton.DataBindings.Add(ENABLED_ATTRIBUTE, _courseSelectingPresentationModel, "IsNotCourseSelectionResultFormOpened");
+            _courseSelectionResultButton.DataBindings.Add(ViewTextConstants.ENABLED_ATTRIBUTE, _courseSelectingPresentationModel, "IsNotCourseSelectionResultFormOpened");
         }
 
         /// <summary>
@@ -58,8 +56,8 @@ namespace CourseApplication.Views.CourseSelecting
         /// </summary>
         private void RenderGridData()
         {
-            List<CourseSelectingDto> coursesComputerScience = _courseSelectingPresentationModel.GetCoursesByDepartment(COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
-            List<CourseSelectingDto> coursesElectricEngineer = _courseSelectingPresentationModel.GetCoursesByDepartment(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
+            List<CourseSelectingDto> coursesComputerScience = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT);
+            List<CourseSelectingDto> coursesElectricEngineer = _courseSelectingPresentationModel.GetCoursesByDepartment(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT);
             _courseSelectingDataGridComponent1.GetCourseSelectingDataGridView().DataSource = coursesComputerScience;
             _courseSelectingDataGridComponent2.GetCourseSelectingDataGridView().DataSource = coursesElectricEngineer;
         }

@@ -15,8 +15,6 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         public event PropertyChangedEventHandler PropertyChanged;
         public event CourseDtosChangedEventHandler _courseDtosChanged;
         public delegate void CourseDtosChangedEventHandler();
-        public const string COMPUTER_SCIENCE_THIRD_GRADE_TEXT = "資工三";
-        public const string ELECTRON_ENGINEERING_THIRD_GRADE_TEXT = "電子三甲";
         public CourseApplicationModel _courseApplicationModel
         {
             get;
@@ -61,8 +59,8 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         public void InitializeCourse()
         {
             _courses.Clear();
-            _courses.Add(COMPUTER_SCIENCE_THIRD_GRADE_TEXT, GetCoursesByDepartment(COMPUTER_SCIENCE_THIRD_GRADE_TEXT));
-            _courses.Add(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT, GetCoursesByDepartment(ELECTRON_ENGINEERING_THIRD_GRADE_TEXT));
+            _courses.Add(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT, GetCoursesByDepartment(CourseApplicationConstants.COMPUTER_SCIENCE_THIRD_GRADE_TEXT));
+            _courses.Add(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT, GetCoursesByDepartment(CourseApplicationConstants.ELECTRON_ENGINEERING_THIRD_GRADE_TEXT));
             NotifyOnCourseDtosChanged();
         }
 
@@ -76,7 +74,7 @@ namespace CourseApplication.PresentationModels.CourseSelecting
                 foreach (var dto in pair.Value)
                     if (GetIsCourseSelected(dto) == true)
                         selectedCourses.Add(GetCourseByDto(dto));
-            return _courseApplicationModel.AddCourseChosen(selectedCourses);
+            return _courseApplicationModel.AddCourseToChosen(selectedCourses);
         }
 
         /// <summary>
@@ -120,7 +118,8 @@ namespace CourseApplication.PresentationModels.CourseSelecting
         /// <param name="propertyName"></param>
         private void Notify(string propertyName)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>

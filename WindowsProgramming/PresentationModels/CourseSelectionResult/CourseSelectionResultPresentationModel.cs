@@ -9,10 +9,7 @@ namespace CourseApplication.PresentationModels.CourseSelectionResult
 {
     public class CourseSelectionResultPresentationModel
     {
-        public CourseApplicationModel _courseApplicationModel
-        {
-            get;
-        }
+        public CourseApplicationModel _courseApplicationModel;
         public CourseSelectionResultPresentationModel(CourseApplicationModel courseApplicationModel)
         {
             _courseApplicationModel = courseApplicationModel;
@@ -20,7 +17,7 @@ namespace CourseApplication.PresentationModels.CourseSelectionResult
         // No States
         public void DropCourse(int index)
         {
-            _courseApplicationModel.DropCourseChosen(index);
+            _courseApplicationModel.DropCourseFromChosen(index);
         }
     }
 }

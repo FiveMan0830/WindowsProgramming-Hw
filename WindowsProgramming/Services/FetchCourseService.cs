@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CourseApplication.Analyzer.Interface;
 using CourseApplication.Analyzer;
 using CourseApplication.Model;
+using CourseApplication.Dto;
 
 namespace CourseApplication.Services
 {
@@ -14,7 +15,6 @@ namespace CourseApplication.Services
     {
         private const string NODE_XPATH = "//body/table";
         private readonly HtmlWeb _webClient;
-        public const string BREAK_LINE = "\n";
         public FetchCourseService(HtmlWeb webClient)
         {
             _webClient = webClient;
@@ -36,7 +36,7 @@ namespace CourseApplication.Services
             IWebAnalyzer analyzer = new WebAnalyzer();
             RemoveRedundantNode(nodeTableRow, 0);
             string departmentName = GetDepartmentName(nodeTableRow);
-            departmentName = departmentName.Replace(BREAK_LINE, "");
+            departmentName = departmentName.Replace(CourseApplicationConstants.BREAK_LINE, "");
             RemoveRedundantNode(nodeTableRow, 0);
             RemoveRedundantNode(nodeTableRow, 0);
             RemoveRedundantNode(nodeTableRow, GetLastRow(nodeTableRow));
